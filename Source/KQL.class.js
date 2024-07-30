@@ -1,7 +1,8 @@
 'use strict';
 
 import { gql, request, GraphQLClient } from 'graphql-request';
-	
+import { Struct } from 'Struct.class.js';
+
 export default class KQL {
 	constructor() {
 		this._graph_url	= 'https://api-de.knuddels.de/api-gateway/graphql';
@@ -19,16 +20,7 @@ export default class KQL {
 	
 	getDeviceToken(username, password) {
 		return new Promise(async (success, error) => {
-			const reqsponse = await request(this._graph_url, gql`query CreateDeviceToken($username: String!, $password: String!) {
-				login {
-					createDeviceToken(username: $username, password: $password) {
-						result
-						token
-						__typename
-					}
-					__typename
-				}
-			}`, {
+			const reqsponse = await request(this._graph_url, Struct.getQuery('CreateDeviceToken'), {
 				username: username,
 				password: password
 			});
@@ -53,60 +45,10 @@ export default class KQL {
 				headers: {
 					authorization: 'Bearer ' + token,
 				}
-			}).request(gql`query RefreshSessionToken($sessionInfo: SessionInfo!, $oldSessionToken: SessionToken) {
-				login {
-					refreshSession(sessionInfo: $sessionInfo, token: $oldSessionToken) {
-						... on RefreshSessionSuccess {
-							expiry
-							token
-							__typename
-						}
-						...RefreshSessionError
-						__typename
-					}
-					__typename
-				}
-			}
-			
-			fragment RefreshSessionError on RefreshSessionError {
-				errorMessage
-				user {
-					...UserWithLockInfo
-					__typename
-				}
-				__typename
-			}
-			
-			fragment UserWithLockInfo on User {
-				id
-				nick
-				lockInfo {
-					... on UnlockedLockInfo {
-						__typename
-					}
-					... on TemporaryLockInfo {
-						lockReason
-						lockedBy {
-							id
-							nick
-							__typename
-						}
-						lockedUntilDate
-						__typename
-					}
-					... on PermanentLockInfo {
-						lockReason
-						lockedBy {
-							id
-							nick
-							__typename
-						}
-						__typename
-					}
-					__typename
-					}
-					__typename
-			}`, {
+			}).request(Struct.getQuery('RefreshSessionToken', [
+				'RefreshSessionError',
+				'UserWithLockInfo'
+			]), {
 				sessionInfo: {
 					type:			'K3GraphQl',
 					platform:		'Native',
