@@ -1,6 +1,6 @@
 'use strict';
 
-class Struct {
+class Schema {
 	constructor() {
 		this.cache = {
 			fragments: 		{},
@@ -18,7 +18,7 @@ class Struct {
 	
 	getFragment(name) {
 		if(typeof(this.cache.fragments[name]) == 'undefined') {
-			throw Error('[Struct] Cant find fragment "' + name + '".');
+			throw Error('[Schema] Cant find fragment "' + name + '".');
 		}
 		
 		return this.cache.fragments[name];
@@ -26,7 +26,7 @@ class Struct {
 	
 	getQuery(name, fragments) {
 		if(typeof(this.cache.querys[name]) == 'undefined') {
-			throw Error('[Struct] Cant find query "' + name + '".');
+			throw Error('[Schema] Cant find query "' + name + '".');
 		}
 		
 		return this.cache.querys[name]; // + Fragments
@@ -34,7 +34,7 @@ class Struct {
 	
 	getMutation(name) {
 		if(typeof(this.cache.mutations[name]) == 'undefined') {
-			throw Error('[Struct] Cant find mutation "' + name + '".');
+			throw Error('[Schema] Cant find mutation "' + name + '".');
 		}
 		
 		return this.cache.mutations[name];
@@ -42,11 +42,11 @@ class Struct {
 	
 	getSubscription(name) {
 		if(typeof(this.cache.subscriptions[name]) == 'undefined') {
-			throw Error('[Struct] Cant find subscription "' + name + '".');
+			throw Error('[Schema] Cant find subscription "' + name + '".');
 		}
 		
 		return this.cache.subscriptions[name];
 	}
 }
 
-export default new Struct();
+export default new Schema();
