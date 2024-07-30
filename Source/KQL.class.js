@@ -6,133 +6,144 @@ import WebSocket from 'ws';
 
 export default class KQL {
 	constructor() {
-		this._graph_url	= 'https://api-de.knuddels.de/api-gateway/graphql';
-		this._session	= null;
-		this._socket	= new WebSocket('wss://api-de.knuddels.de/api-gateway/subscriptions', {
-			headers: {
-				'origin':		'https://app.knuddels.de',
-				'user-agent':	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0'
-			}
-		});
-		this._id		= 1;
-		this._events	= {};
+		this._graph_url		= 'https://api-de.knuddels.de/api-gateway/graphql';
+		this._session		= null;
+		this._socket		= null;
+		this._id			= 1;
+		this._events		= {};
 		
-		this._socket.on('error', console.error);
-		this._socket.on('open', () => {
-			console.log('[WebSocket]', 'Connected!');
+		this.getCurrentServerTime().then((time) => {
+			this._server_time	= time;
 		});
-
-		this._socket.on('close', () => {
-			console.log('[WebSocket]', 'Disconnected!');
-		});
-
-		this._socket.on('message', (data) => {
-			let packet = JSON.parse(data.toString());
+	}
+	
+	connect() {
+		return new Promise(async (success, error) => {
+			this._socket	= new WebSocket('wss://api-de.knuddels.de/api-gateway/subscriptions', {
+				headers: {
+					'origin':		'https://app.knuddels.de',
+					'user-agent':	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0'
+				}
+			});
 			
-			console.log('[WebSocket]', '\x1b[2m\x1b[100m\x1b[32mIN\x1b[0m', packet);
-			
-			switch(packet.type) {
-				case 'ka':
-					// Ping
-				break;
-				case 'connection_ack':
-					/* Create Subscriptions */
-					this.subscribe('MentorEvents', [
-						'PotentialMenteeAddedEvent', 'MentorStatus', 'MentorStatusActive'
-					]);
-					
-					this.subscribe('Notifications', [
-						'Notification',
-						'Color'
-					]);
-					
-					this.subscribe('HasKnuddelsPlusChanged');
-					
-					this.subscribe('TanSystemSubscription', [
-						'TanSystemStatus'
-					]);
-					
-					this.subscribe('SmileyboxChanged');
-					
-					this.subscribe('PromotionEvents', [
-						'HappyHour'
-					]);
-					
-					this.subscribe('ClientSettingsSubscription', [
-						'ClientSettingsChanged',
-						'AllClientSettings',
-						'MacroBoxSettingsEntry'
-					]);
-					
-					this.subscribe('FriendRequestEvents', [
-						'FriendRequestUser',
-						'ProfilePictureOverlays'
-					], {
-						pixelDensity: 1
-					});
-					
-					this.subscribe('FriendStateChangedEvent');
-					
-					[
-						'Friends',
-						'Watchlist',
-						'Fotomeet'
-					].forEach((type) => {
-						this.subscribe('ContactListChanged', [
-							'ContactsUser',
+			this._socket.on('error', console.error);
+			this._socket.on('open', () => {
+				console.log('[WebSocket]', 'Connected!');
+				success();
+			});
+
+			this._socket.on('close', () => {
+				console.log('[WebSocket]', 'Disconnected!');
+			});
+
+			this._socket.on('message', (data) => {
+				let packet = JSON.parse(data.toString());
+				
+				console.log('[WebSocket]', '\x1b[2m\x1b[100m\x1b[32mIN\x1b[0m', packet);
+				
+				switch(packet.type) {
+					case 'ka':
+						// Ping
+					break;
+					case 'connection_ack':
+						/* Create Subscriptions */
+						this.subscribe('MentorEvents', [
+							'PotentialMenteeAddedEvent', 'MentorStatus', 'MentorStatusActive'
+						]);
+						
+						this.subscribe('Notifications', [
+							'Notification',
+							'Color'
+						]);
+						
+						this.subscribe('HasKnuddelsPlusChanged');
+						
+						this.subscribe('TanSystemSubscription', [
+							'TanSystemStatus'
+						]);
+						
+						this.subscribe('SmileyboxChanged');
+						
+						this.subscribe('PromotionEvents', [
+							'HappyHour'
+						]);
+						
+						this.subscribe('ClientSettingsSubscription', [
+							'ClientSettingsChanged',
+							'AllClientSettings',
+							'MacroBoxSettingsEntry'
+						]);
+						
+						this.subscribe('FriendRequestEvents', [
+							'FriendRequestUser',
 							'ProfilePictureOverlays'
 						], {
-							pixelDensity:	1,
-							filter:			{
-								type: type
-							}
+							pixelDensity: 1
 						});
-					});
-					
-					this.subscribe('fotoMeetEvents');
-					
-					this.subscribe('FriendRecommendationSubscription');
-					
-					this.subscribe('CanSendImagesChanged');
-					
-					this.subscribe('MessengerSubscription', null, {
-						pixelDensity: 1
-					});
-					
-					this.subscribe('ChannelEvents', [
-						'ChannelMessage',
-						'ChannelUser',
-						'NicklistIcon',
-						'ProfilePictureUser',
-						'ProfilePictureOverlays',
-						'ChannelMsgUser'
-					], {
-						pixelDensity: 1
-					});
-					
-					this.subscribe('PaymentSubscription');
-					
-					this.subscribe('AppEvents');
-					
-					this.subscribe('SystemEvents');
-					
-					this.subscribe('happyMomentEvents', [
-						'LongConversationOccurred',
-						'DailyLoginUsed',
-						'FriendRequestAccepted'
-					]);
-					
-					this.subscribe('profileVisitorsEvents', [
-						'ProfileVisitorsUser',
-						'ProfilePictureOverlays'
-					], {
-						pixelDensity: 1
-					});
-				break;
-				case 'error':
-					console.error('ERROR', JSON.stringify(packet.payload.errors, 0, 1));
-				break;
-			}
+						
+						this.subscribe('FriendStateChangedEvent');
+						
+						[
+							'Friends',
+							'Watchlist',
+							'Fotomeet'
+						].forEach((type) => {
+							this.subscribe('ContactListChanged', [
+								'ContactsUser',
+								'ProfilePictureOverlays'
+							], {
+								pixelDensity:	1,
+								filter:			{
+									type: type
+								}
+							});
+						});
+						
+						this.subscribe('fotoMeetEvents');
+						
+						this.subscribe('FriendRecommendationSubscription');
+						
+						this.subscribe('CanSendImagesChanged');
+						
+						this.subscribe('MessengerSubscription', null, {
+							pixelDensity: 1
+						});
+						
+						this.subscribe('ChannelEvents', [
+							'ChannelMessage',
+							'ChannelUser',
+							'NicklistIcon',
+							'ProfilePictureUser',
+							'ProfilePictureOverlays',
+							'ChannelMsgUser'
+						], {
+							pixelDensity: 1
+						});
+						
+						this.subscribe('PaymentSubscription');
+						
+						this.subscribe('AppEvents');
+						
+						this.subscribe('SystemEvents');
+						
+						this.subscribe('happyMomentEvents', [
+							'LongConversationOccurred',
+							'DailyLoginUsed',
+							'FriendRequestAccepted'
+						]);
+						
+						this.subscribe('profileVisitorsEvents', [
+							'ProfileVisitorsUser',
+							'ProfilePictureOverlays'
+						], {
+							pixelDensity: 1
+						});
+					break;
+					case 'error':
+						console.error('ERROR', JSON.stringify(packet.payload.errors, 0, 1));
+					break;
+				}
+			});
 		});
 	}
 	
@@ -180,6 +191,14 @@ export default class KQL {
 		});
 	}
 	
+	getCurrentServerTime() {
+		return new Promise(async (success, error) => {
+			const response = await request(this._graph_url, Scheme.getQuery('CurrentServerTime'));
+			
+			success(response.currentTime);
+		});
+	}
+	
 	getRefreshSessionToken(token) {
 		return new Promise(async (success, error) => {
 			const reqsponse = await new GraphQLClient(this._graph_url, {
@@ -207,18 +226,36 @@ export default class KQL {
 				}
 			});
 			
-			/* Connect with WebSocket */
-			this.send({
-				type: 		'connection_init',
-				payload:	{
-					authToken:	reqsponse.login.refreshSession.token
-				}
-			});
-			
 			success({
 				expire: reqsponse.login.refreshSession.expiry,
 				token:	reqsponse.login.refreshSession.token
 			});
+		});
+	}
+	
+	KeepOnlineV2() {
+		return new Promise(async (success, error) => {
+			await new GraphQLClient(this._graph_url, {
+				headers: {
+					authorization: 'Bearer ' + this._session,
+				}
+			}).request(Scheme.getMutation('KeepOnlineV2'), {
+				clientState:	'Active'
+			});
+		});
+	}
+	
+	getCurrentNick() {
+		return new Promise(async (success, error) => {
+			const reqsponse = await new GraphQLClient(this._graph_url, {
+				headers: {
+					authorization: 'Bearer ' + this._session,
+				}
+			}).request(Scheme.getQuery('GetCurrentUserNick', [
+				'ProfilePictureOverlays'
+			]));
+			
+			success(reqsponse.user.currentUser);
 		});
 	}
 	
@@ -244,8 +281,26 @@ export default class KQL {
 			this.getDeviceToken(username, password).then((token) => {
 				this.getRefreshSessionToken(token).then((session) => {
 					this._session = session.token;
-					this.initialJoin();
-					success();
+					
+					this.KeepOnlineV2();
+					
+					
+					/* Connect with WebSocket */
+					this.connect().then(() => {
+						this.send({
+							type: 		'connection_init',
+							payload:	{
+								authToken:	session
+							}
+						});
+						
+						this.initialJoin();
+						
+						this.getCurrentNick().then((user) => {
+							console.error("NICKNAME", user);
+							success();						
+						});
+					});
 				}).catch(error);
 				
 			}).catch(error);
