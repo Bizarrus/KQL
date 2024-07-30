@@ -1,7 +1,7 @@
 'use strict';
 
 import { gql, request, GraphQLClient } from 'graphql-request';
-import { Schema } from 'Schema.class.js';
+import Scheme from './Scheme.class.js';
 
 export default class KQL {
 	constructor() {
@@ -20,7 +20,7 @@ export default class KQL {
 	
 	getDeviceToken(username, password) {
 		return new Promise(async (success, error) => {
-			const reqsponse = await request(this._graph_url, Schema.getQuery('CreateDeviceToken'), {
+			const reqsponse = await request(this._graph_url, Scheme.getQuery('CreateDeviceToken'), {
 				username: username,
 				password: password
 			});
@@ -45,7 +45,7 @@ export default class KQL {
 				headers: {
 					authorization: 'Bearer ' + token,
 				}
-			}).request(Schema.getQuery('RefreshSessionToken', [
+			}).request(Scheme.getQuery('RefreshSessionToken', [
 				'RefreshSessionError',
 				'UserWithLockInfo'
 			]), {
