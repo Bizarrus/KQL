@@ -68,20 +68,40 @@ class Scheme {
 		return content;
 	}
 	
-	getMutation(name) {
+	getMutation(name, fragments) {
 		if(typeof(this.cache.mutations[name]) == 'undefined') {
 			throw Error('[Scheme] Cant find mutation "' + name + '".');
 		}
 		
-		return this.cache.mutations[name];
+		let content = this.cache.mutations[name];
+		
+		if(typeof(fragments) !== 'undefined') {
+			content += '\n';
+			
+			fragments.map(fragment => {
+				content += '\n' + this.getFragment(fragment);
+			});
+		}
+		
+		return content;
 	}
 	
-	getSubscription(name) {
+	getSubscription(name, fragments) {
 		if(typeof(this.cache.subscriptions[name]) == 'undefined') {
 			throw Error('[Scheme] Cant find subscription "' + name + '".');
 		}
 		
-		return this.cache.subscriptions[name];
+		let content = this.cache.subscriptions[name];
+		
+		if(typeof(fragments) !== 'undefined' && fragments !== null) {
+			content += '\n';
+			
+			fragments.map(fragment => {
+				content += '\n' + this.getFragment(fragment);
+			});
+		}
+		
+		return content;
 	}
 }
 

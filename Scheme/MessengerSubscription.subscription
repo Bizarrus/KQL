@@ -1,0 +1,388 @@
+subscription MessengerSubscription($pixelDensity: Float!) {
+  messengerEvent {
+    ... on MessengerMessageStarredStateChanged {
+      ...MessengerMessageStarredStateChanged
+      __typename
+    }
+    ...MessengerMessageReceived
+    ...MessengerSettingsChanged
+    ...MessengerUserTypingStarted
+    ...MessengerUserTypingStopped
+    ...MessengerConversationReadStateChanged
+    ...MessengerConversationVisibilityChanged
+    ...MessengerMessageChanged
+    __typename
+  }
+}
+
+fragment MessengerMessageStarredStateChanged on MessengerMessageStarredStateChanged {
+  starredMessage {
+    ...StarredConversationMessage
+    __typename
+  }
+  __typename
+}
+
+fragment StarredConversationMessage on StarredConversationMessage {
+  conversation {
+    id
+    otherParticipants {
+      ...StarredMessagesUser
+      __typename
+    }
+    __typename
+  }
+  message {
+    ...StarredMessagesConversationMessage
+    __typename
+  }
+  __typename
+}
+
+fragment StarredMessagesUser on User {
+  id
+  nick
+  profilePicture {
+    urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 60)
+    __typename
+  }
+  __typename
+}
+
+fragment StarredMessagesConversationMessage on ConversationMessage {
+  ...ConversationMessage
+  sender {
+    ...StarredMessagesUser
+    __typename
+  }
+  __typename
+}
+
+fragment ConversationMessage on ConversationMessage {
+  id
+  timestamp
+  sender {
+    ...MessengerBasicUser
+    __typename
+  }
+  content {
+    ...ConversationMessageContent
+    __typename
+  }
+  __typename
+}
+
+fragment MessengerBasicUser on User {
+  id
+  nick
+  isOnline
+  canSendImages
+  menteeStatus
+  __typename
+}
+
+fragment ConversationMessageContent on ConversationMessageContent {
+  ... on ConversationTextMessageContent {
+    ...ConversationTextMessageContent
+    __typename
+  }
+  ... on ConversationQuotedMessageContent {
+    ...ConversationQuotedMessageContent
+    __typename
+  }
+  ... on ConversationForwardedMessageContent {
+    ...ConversationForwardedMessageContent
+    __typename
+  }
+  ... on ConversationImageMessageContent {
+    ...ConversationImageMessageContent
+    __typename
+  }
+  ... on ConversationSnapMessageContent {
+    ...ConversationSnapMessageContent
+    __typename
+  }
+  ... on ConversationVisiblePhotoCommentMessageContent {
+    ...ConversationVisiblePhotoCommentMessageContent
+    __typename
+  }
+  ... on ConversationHiddenPhotoCommentMessageContent {
+    ...ConversationHiddenPhotoCommentMessageContent
+    __typename
+  }
+  ... on ConversationDeletedPhotoCommentMessageContent {
+    ...ConversationDeletedPhotoCommentMessageContent
+    __typename
+  }
+  ... on ConversationKnuddelTransferMessageContent {
+    ...ConversationKnuddelTransferMessageContent
+    __typename
+  }
+  ... on ConversationMentorAchievedMessageContent {
+    ...ConversationMentorAchievedMessageContent
+    __typename
+  }
+  ... on ConversationPrivateSystemMessageContent {
+    ...ConversationPrivateSystemMessageContent
+    __typename
+  }
+  ... on ConversationBirthdayMessageContent {
+    ...ConversationBirthdayMessageContent
+    __typename
+  }
+  ... on ConversationNicknameChangeMessageContent {
+    ...ConversationNicknameChangeMessageContent
+    __typename
+  }
+  __typename
+}
+
+fragment ConversationTextMessageContent on ConversationTextMessageContent {
+  formattedText
+  starred
+  __typename
+}
+
+fragment ConversationQuotedMessageContent on ConversationQuotedMessageContent {
+  starred
+  formattedText
+  nestedMessage {
+    ...ConversationNestedMessage
+    __typename
+  }
+  __typename
+}
+
+fragment ConversationNestedMessage on ConversationNestedMessage {
+  sender {
+    ...MessengerBasicUser
+    __typename
+  }
+  timestamp
+  content {
+    ...ConversationNestedMessageContent
+    __typename
+  }
+  __typename
+}
+
+fragment ConversationNestedMessageContent on ConversationNestedMessageContent {
+  ... on ConversationTextMessageContent {
+    starred
+    formattedText
+    __typename
+  }
+  ... on ConversationImageMessageContent {
+    starred
+    image {
+      url
+      __typename
+    }
+    imageAccepted
+    sensitiveContentClassification
+    __typename
+  }
+  __typename
+}
+
+fragment ConversationForwardedMessageContent on ConversationForwardedMessageContent {
+  starred
+  nestedMessage {
+    ...ConversationNestedMessage
+    __typename
+  }
+  __typename
+}
+
+fragment ConversationImageMessageContent on ConversationImageMessageContent {
+  starred
+  image {
+    url
+    __typename
+  }
+  imageAccepted
+  sensitiveContentClassification
+  __typename
+}
+
+fragment ConversationSnapMessageContent on ConversationSnapMessageContent {
+  snap {
+    url
+    photoId
+    duration
+    decryptionKey
+    __typename
+  }
+  imageAccepted
+  sensitiveContentClassification
+  __typename
+}
+
+fragment ConversationVisiblePhotoCommentMessageContent on ConversationVisiblePhotoCommentMessageContent {
+  albumPhotoId
+  commentId
+  photoUrl
+  formattedText
+  __typename
+}
+
+fragment ConversationHiddenPhotoCommentMessageContent on ConversationHiddenPhotoCommentMessageContent {
+  albumPhotoId
+  photoUrl
+  formattedText
+  __typename
+}
+
+fragment ConversationDeletedPhotoCommentMessageContent on ConversationDeletedPhotoCommentMessageContent {
+  unused
+  __typename
+}
+
+fragment ConversationKnuddelTransferMessageContent on ConversationKnuddelTransferMessageContent {
+  knuddelAmount
+  __typename
+}
+
+fragment ConversationMentorAchievedMessageContent on ConversationMentorAchievedMessageContent {
+  unused
+  __typename
+}
+
+fragment ConversationPrivateSystemMessageContent on ConversationPrivateSystemMessageContent {
+  icon
+  formattedText
+  collapse
+  __typename
+}
+
+fragment ConversationBirthdayMessageContent on ConversationBirthdayMessageContent {
+  unused
+  __typename
+}
+
+fragment ConversationNicknameChangeMessageContent on ConversationNicknameChangeMessageContent {
+  oldNick
+  newNick
+  __typename
+}
+
+fragment MessengerMessageReceived on MessengerMessageReceived {
+  messageCorrelationId
+  conversationMessage {
+    ...ReceivedConversationMessage
+    __typename
+  }
+  conversation {
+    latestConversationMessage {
+      ...ReceivedConversationMessage
+      __typename
+    }
+    id
+    otherParticipants {
+      id
+      nick
+      __typename
+    }
+    visibility
+    __typename
+  }
+  __typename
+}
+
+fragment ReceivedConversationMessage on ConversationMessage {
+  ...ConversationMessage
+  sender {
+    ...MessengerBasicUser
+    currentOnlineChannelName
+    __typename
+  }
+  __typename
+}
+
+fragment MessengerSettingsChanged on MessengerSettingsChanged {
+  settings {
+    conversationListFilterType
+    __typename
+  }
+  __typename
+}
+
+fragment MessengerUserTypingStarted on MessengerUserTypingStarted {
+  user {
+    id
+    __typename
+  }
+  conversation {
+    id
+    __typename
+  }
+  willReceiveStopEvent
+  __typename
+}
+
+fragment MessengerUserTypingStopped on MessengerUserTypingStopped {
+  user {
+    id
+    __typename
+  }
+  conversation {
+    id
+    __typename
+  }
+  __typename
+}
+
+fragment MessengerConversationReadStateChanged on MessengerConversationReadStateChanged {
+  conversation {
+    id
+    readState {
+      lastReadConversationMessage {
+        id
+        __typename
+      }
+      markedAsUnread
+      unreadMessageCount
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+
+fragment MessengerConversationVisibilityChanged on MessengerConversationVisibilityChanged {
+  conversation {
+    id
+    visibility
+    __typename
+  }
+  __typename
+}
+
+fragment MessengerMessageChanged on MessengerMessageChanged {
+  conversationId
+  conversationMessage {
+    id
+    content {
+      ... on ConversationVisiblePhotoCommentMessageContent {
+        albumPhotoId
+        commentId
+        formattedText
+        photoUrl
+        __typename
+      }
+      ... on ConversationHiddenPhotoCommentMessageContent {
+        albumPhotoId
+        formattedText
+        photoUrl
+        __typename
+      }
+      ... on ConversationDeletedPhotoCommentMessageContent {
+        unused
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
