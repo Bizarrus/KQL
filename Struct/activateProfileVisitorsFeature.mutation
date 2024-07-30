@@ -1,0 +1,7 @@
+mutation activateProfileVisitorsFeature {
+	user {
+		activateProfileVisitorsFeature {
+			error
+		}
+	}
+}

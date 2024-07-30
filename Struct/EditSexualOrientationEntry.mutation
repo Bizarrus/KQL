@@ -1,0 +1,10 @@
+mutation EditSexualOrientationEntry(
+	$field: ProfileEditField!
+	$value: SexualOrientation
+) {
+	user {
+		editProfileEntrySexualOrientation(field: $field, value: $value) {
+			error
+		}
+	}
+}

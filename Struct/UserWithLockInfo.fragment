@@ -1,0 +1,22 @@
+fragment UserWithLockInfo on User {
+	id
+	nick
+	lockInfo {
+		... on UnlockedLockInfo {
+			__typename
+		}
+		... on TemporaryLockInfo {
+			lockReason
+			lockedBy {
+				nick
+			}
+			lockedUntilDate
+		}
+		... on PermanentLockInfo {
+			lockReason
+			lockedBy {
+				nick
+			}
+		}
+	}
+}

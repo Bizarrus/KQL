@@ -1,0 +1,7 @@
+mutation EditCountryEntry($field: ProfileEditField!, $value: Country!) {
+	user {
+		editProfileEntryCountry(field: $field, value: $value) {
+			error
+		}
+	}
+}

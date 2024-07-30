@@ -1,0 +1,7 @@
+query GetChannelGroups($ids: [ID!]!, $pixelDensity: Float!) {
+	channel {
+		channelGroupsByIds(ids: $ids) {
+			...ChannelGroup
+		}
+	}
+}

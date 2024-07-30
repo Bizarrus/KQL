@@ -1,0 +1,16 @@
+fragment ChannelJoinError on ChannelJoinMutationResponseError {
+	type
+	freetext
+	userNick
+	otherChannelName
+	minAge
+	maxUser
+	startTime
+	endTime
+	minKnuddels
+	minTradeableSmileys
+	minRegisteredDays
+	minStammiMonths
+	requiredGender
+	requiredStatusName
+}

@@ -1,0 +1,10 @@
+mutation KeepOnline($isPresent: Boolean!) {
+	user {
+		keepOnline(isPresent: $isPresent) {
+			__typename
+			... on KeepOnlineError {
+				reason
+			}
+		}
+	}
+}

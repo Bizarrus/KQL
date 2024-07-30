@@ -1,0 +1,6 @@
+subscription EvergreenDataChanged($userId: ID!) {
+	userChanged(config: { fields: [EvergreenData], userId: $userId }) {
+		id
+		evergreenData
+	}
+}

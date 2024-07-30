@@ -1,0 +1,30 @@
+subscription SystemEvents {
+	systemEvent {
+		... on ClientDisconnected {
+			user {
+				id
+			}
+			disconnectReason {
+				... on ClientDisconnectReasonUnknown {
+					unused
+				}
+				... on ClientDisconnectReasonNicknameChanged {
+					newNick
+				}
+				... on ClientDisconnectReasonUserDeleted {
+					unused
+				}
+				... on ClientDisconnectReasonUserLocked {
+					unused
+				}
+			}
+		}
+		... on ChannelConnectionDisconnected {
+			newReason: reason
+		}
+		... on OpenUrl {
+			target
+			url
+		}
+	}
+}

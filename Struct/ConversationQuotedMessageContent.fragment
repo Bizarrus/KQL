@@ -1,0 +1,7 @@
+fragment ConversationQuotedMessageContent on ConversationQuotedMessageContent {
+	starred
+	formattedText
+	nestedMessage {
+		...ConversationNestedMessage
+	}
+}

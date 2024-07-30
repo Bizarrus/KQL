@@ -1,0 +1,12 @@
+fragment MentorStatusActive on MentorStatusActive {
+	pauseState
+	mentorPoints
+	previousMentorLevelBoundary
+	mentorLevelBoundary
+	nextMentorReward {
+		icon
+		title
+	}
+	conversationStartedCount
+	conversationStartedBoundary
+}

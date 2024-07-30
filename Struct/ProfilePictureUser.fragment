@@ -1,0 +1,6 @@
+fragment ProfilePictureUser on User {
+	id
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 40)
+	}
+}

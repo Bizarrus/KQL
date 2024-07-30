@@ -1,0 +1,12 @@
+mutation UpdateTanSystemStatus($status: TanEnabledInput!) {
+	tan {
+		updateTanEnabledStatus(status: $status) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

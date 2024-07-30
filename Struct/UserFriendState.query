@@ -1,0 +1,8 @@
+query UserFriendState($userId: ID!) {
+	user {
+		user(id: $userId) {
+			id
+			friendState
+		}
+	}
+}

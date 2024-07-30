@@ -1,0 +1,7 @@
+query GetConversationWithoutMessages($id: ID!, $pixelDensity: Float!) {
+	messenger {
+		conversation(id: $id) {
+			...FullConversationWithoutMessages
+		}
+	}
+}

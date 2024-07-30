@@ -1,0 +1,7 @@
+mutation StarMessengerMessage($id: ID!) {
+	messenger {
+		starMessage(messageId: $id) {
+			error
+		}
+	}
+}

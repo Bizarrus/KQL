@@ -1,0 +1,7 @@
+query AlbumPhotoComments($albumPhotoId: ID!, $pixelDensity: Float!) {
+	user {
+		albumPhotoComments(albumPhotoId: $albumPhotoId) {
+			...AlbumPhotoComment
+		}
+	}
+}

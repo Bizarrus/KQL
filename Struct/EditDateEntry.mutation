@@ -1,0 +1,7 @@
+mutation EditDateEntry($field: ProfileEditField!, $value: UtcTimestamp!) {
+	user {
+		editProfileEntryDate(field: $field, value: $value) {
+			error
+		}
+	}
+}

@@ -1,0 +1,9 @@
+fragment MessengerUserTypingStarted on MessengerUserTypingStarted {
+	user {
+		id
+	}
+	conversation {
+		id
+	}
+	willReceiveStopEvent
+}

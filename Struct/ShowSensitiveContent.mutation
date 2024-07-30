@@ -1,0 +1,7 @@
+mutation ShowSensitiveContent($messageId: ID!) {
+	messenger {
+		viewedSensitiveContent(conversationMessageId: $messageId) {
+			unused
+		}
+	}
+}

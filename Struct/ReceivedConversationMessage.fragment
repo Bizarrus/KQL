@@ -1,0 +1,7 @@
+fragment ReceivedConversationMessage on ConversationMessage {
+	...ConversationMessage
+	sender {
+		...MessengerBasicUser
+		currentOnlineChannelName
+	}
+}

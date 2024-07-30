@@ -1,0 +1,5 @@
+fragment NicknameHistorySettings on NicknameHistorySettings {
+	checked
+	toggleable
+	disabledUntil
+}

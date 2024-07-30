@@ -1,0 +1,12 @@
+mutation ChangeFriendsPrivacySettings($privacyType: PrivacyType!) {
+	user {
+		changeFriendsPrivacyType(privacyType: $privacyType) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

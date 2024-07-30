@@ -1,0 +1,14 @@
+mutation UpdateFriendNotificationEnabledStatus(
+	$status: NotificationEnabledInput!
+) {
+	notificationSettings {
+		updateFriendNotificationEnabledStatus(status: $status) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+fragment UserForQuickWhois on User {
+	id
+	nick
+	age
+	gender
+	ignoreState
+	sexualOrientation
+	relationshipStatus
+	city
+	distance
+	canReceiveMessages
+	profilePicture {
+		urlLargeSquare
+		urlVeryLarge
+	}
+	profilePictureOverlayUrls {
+		...ProfilePictureOverlays
+	}
+	albumPhotosUrl
+	isOnWatchlist
+	friendState
+	hasSeenProfileAfterFriendshipStarted
+	isAppBot
+	authenticityClassification
+	isAllowedByContactFilter
+}

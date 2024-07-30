@@ -1,0 +1,18 @@
+mutation SendSmileyReaction(
+	$messageId: ID!
+	$smileyId: ID!
+	$messageCorrelationId: ID!
+) {
+	messenger {
+		sendSmileyReaction(
+			messageId: $messageId
+			smileyId: $smileyId
+			messageCorrelationId: $messageCorrelationId
+		) {
+			error {
+				filterReason
+				type
+			}
+		}
+	}
+}

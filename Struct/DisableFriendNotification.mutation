@@ -1,0 +1,12 @@
+mutation DisableFriendNotification {
+	notificationSettings {
+		disableFriendNotification {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

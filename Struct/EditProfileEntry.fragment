@@ -1,0 +1,33 @@
+fragment EditProfileEntry on ProfileEditEntry {
+	field
+	... on ProfileEditEntryFreeText {
+		freeTextValue
+		freeTextPattern
+		freeTextMinLength
+		freeTextMaxLength
+		freeTextMultiLineAllowed
+	}
+	... on ProfileEditEntryChildren {
+		childrenValue
+	}
+	... on ProfileEditEntryDate {
+		dateValue
+		dateMinValue
+		dateMaxValue
+	}
+	... on ProfileEditEntryRelationshipStatus {
+		relationshipStatusValue
+	}
+	... on ProfileEditEntrySexualOrientation {
+		sexualOrientationValue
+	}
+	... on ProfileEditEntrySmoker {
+		smokerValue
+	}
+	... on ProfileEditEntryStringList {
+		stringListValue
+	}
+	... on ProfileEditEntryCountry {
+		countryValue
+	}
+}

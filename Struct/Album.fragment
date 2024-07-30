@@ -1,0 +1,8 @@
+fragment Album on Album {
+	id
+	title
+	isOwner
+	albumPhotos {
+		...AlbumDetailPhoto
+	}
+}

@@ -1,0 +1,4 @@
+fragment ConversationTextMessageContent on ConversationTextMessageContent {
+	formattedText
+	starred
+}

@@ -1,0 +1,24 @@
+mutation EditAlbumPhotoDescription(
+	$photoId: ID!
+	$newDescription: String!
+) {
+	user {
+		changeAlbumPhotoDescription(
+			albumPhotoId: $photoId
+			description: $newDescription
+		) {
+			... on ChangeAlbumPhotoDescriptionSuccess {
+				description {
+					formattedText
+					rawText
+				}
+			}
+			... on NotFoundError {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

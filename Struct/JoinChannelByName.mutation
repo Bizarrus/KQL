@@ -1,0 +1,21 @@
+mutation JoinChannelByName(
+	$name: String!
+	$password: String
+	$pixelDensity: Float!
+	$confirmed: Boolean
+) {
+	channel {
+		joinByName(
+			name: $name
+			password: $password
+			confirmed: $confirmed
+		) {
+			channel {
+				...ActiveChannel
+			}
+			error {
+				...ChannelJoinError
+			}
+		}
+	}
+}

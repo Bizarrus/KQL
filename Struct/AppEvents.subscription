@@ -1,0 +1,48 @@
+subscription AppEvents {
+	appEvent {
+		... on AppOpenEvent {
+			appId
+			channelName
+			contentUrl
+			display {
+				... on AppDisplayHeaderbar {
+					height
+				}
+				... on AppDisplayPopup {
+					height
+					width
+				}
+				... on AppDisplayScaled {
+					height
+					width
+				}
+				... on AppDisplayChannelBackground {
+					unused
+				}
+				... on AppDisplaySidebar {
+					height
+					width
+				}
+			}
+			loaderUrl
+			pageData
+			isUserApp
+		}
+		... on AppClosedEvent {
+			appId
+			channelName
+		}
+		... on AppDataEvent {
+			appId
+			channelName
+			eventKey
+			eventValue
+		}
+		... on AppControlPlaneEvent {
+			appId
+			channelName
+			eventKey
+			eventValue
+		}
+	}
+}

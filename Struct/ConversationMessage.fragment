@@ -1,0 +1,10 @@
+fragment ConversationMessage on ConversationMessage {
+	id
+	timestamp
+	sender {
+		...MessengerBasicUser
+	}
+	content {
+		...ConversationMessageContent
+	}
+}

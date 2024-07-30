@@ -1,0 +1,7 @@
+mutation SendAppControlPlaneEvent($event: AppControlPlaneEventInput!) {
+	apps {
+		sendAppEvent(event: $event) {
+			unused
+		}
+	}
+}

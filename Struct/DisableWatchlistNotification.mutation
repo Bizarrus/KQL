@@ -1,0 +1,12 @@
+mutation DisableWatchlistNotification {
+	notificationSettings {
+		disableWatchlistNotification {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

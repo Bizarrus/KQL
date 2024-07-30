@@ -1,0 +1,8 @@
+query GetMessengerConversationVisibility($id: ID!) {
+	messenger {
+		conversation(id: $id) {
+			id
+			visibility
+		}
+	}
+}

@@ -1,0 +1,25 @@
+mutation ForwardMessage(
+	$messageId: ID!
+	$recipients: [ID!]!
+	$messageCorrelationId: ID!
+) {
+	messenger {
+		forwardMessage(
+			messageId: $messageId
+			recipients: $recipients
+			messageCorrelationId: $messageCorrelationId
+		) {
+			error {
+				filterReason
+				type
+			}
+			recipientCount
+			results {
+				messageError {
+					type
+					filterReason
+				}
+			}
+		}
+	}
+}

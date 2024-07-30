@@ -1,0 +1,12 @@
+subscription profileVisitorsEvents($pixelDensity: Float!) {
+	profileVisitorsEvent {
+		... on ProfileVisitorsVisibilityStatusChanged {
+			visibilityStatus
+		}
+		... on ProfileVisitorAdded {
+			visitor {
+				...ProfileVisitorsUser
+			}
+		}
+	}
+}

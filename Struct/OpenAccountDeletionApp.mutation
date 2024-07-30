@@ -1,0 +1,21 @@
+mutation OpenAccountDeletionApp {
+	user {
+		openAccountDeletionApp {
+			... on Success {
+				unused
+			}
+			... on DeletionAlreadyRunningError {
+				unused
+			}
+			... on SpecialStatusOrRightsError {
+				unused
+			}
+			... on ActivePremiumSubscriptionError {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

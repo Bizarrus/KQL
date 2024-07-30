@@ -1,0 +1,14 @@
+fragment NicknameChangeOptions on NicknameChangeOptions {
+	showOnTopOfNickList {
+		...NicknameChangeOption
+	}
+	showNickListIcon {
+		...NicknameChangeOption
+	}
+	specialGreeting {
+		...NicknameChangeOption
+	}
+	showNickListEffect {
+		...NicknameChangeOption
+	}
+}

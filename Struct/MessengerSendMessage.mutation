@@ -1,0 +1,18 @@
+mutation MessengerSendMessage(
+	$id: ID!
+	$text: String!
+	$messageCorrelationId: ID!
+) {
+	messenger {
+		sendMessage(
+			conversationId: $id
+			text: $text
+			messageCorrelationId: $messageCorrelationId
+		) {
+			error {
+				type
+				filterReason
+			}
+		}
+	}
+}

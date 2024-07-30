@@ -1,0 +1,7 @@
+subscription NotificationSettingsSubscription {
+	notificationSettingsEvent {
+		... on NotificationSettingsChanged {
+			...NotificationSettingsChanged
+		}
+	}
+}

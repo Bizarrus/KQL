@@ -1,0 +1,15 @@
+query GetUserForQuickWhois($userId: ID!) {
+	user {
+		user(id: $userId) {
+			...UserForQuickWhois
+		}
+		currentUser {
+			id
+		}
+	}
+	messenger {
+		conversationWithParticipants(otherParticipantIds: [$userId]) {
+			id
+		}
+	}
+}

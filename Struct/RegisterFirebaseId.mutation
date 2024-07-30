@@ -1,0 +1,7 @@
+mutation RegisterFirebaseId($instanceId: String!) {
+	pushnotification {
+		registerFirebaseInstanceId(instanceId: $instanceId) {
+			__typename
+		}
+	}
+}

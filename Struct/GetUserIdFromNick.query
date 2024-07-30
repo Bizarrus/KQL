@@ -1,0 +1,11 @@
+query GetUserIdFromNick($nick: String!, $accountForNickSwitch: Boolean) {
+	user {
+		userFromNick(
+			nick: $nick
+			accountForNickSwitch: $accountForNickSwitch
+		) {
+			id
+			nick
+		}
+	}
+}

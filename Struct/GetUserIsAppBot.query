@@ -1,0 +1,8 @@
+query GetUserIsAppBot($userId: ID!) {
+	user {
+		user(id: $userId) {
+			id
+			isAppBot
+		}
+	}
+}

@@ -1,0 +1,10 @@
+query FilteredChannelGroupsByPrefixAndCategory(
+	$prefix: String!
+	$pixelDensity: Float!
+) {
+	channel {
+		channelGroups(prefix: $prefix, includeCategory: true) {
+			...SearchChannelGroup
+		}
+	}
+}

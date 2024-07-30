@@ -1,0 +1,22 @@
+fragment MessengerMessageChanged on MessengerMessageChanged {
+	conversationId
+	conversationMessage {
+		id
+		content {
+			... on ConversationVisiblePhotoCommentMessageContent {
+				albumPhotoId
+				commentId
+				formattedText
+				photoUrl
+			}
+			... on ConversationHiddenPhotoCommentMessageContent {
+				albumPhotoId
+				formattedText
+				photoUrl
+			}
+			... on ConversationDeletedPhotoCommentMessageContent {
+				unused
+			}
+		}
+	}
+}

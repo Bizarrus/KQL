@@ -1,0 +1,5 @@
+fragment UserWithOnlineAndChannel on User {
+	id
+	isOnline
+	currentOnlineChannelName
+}

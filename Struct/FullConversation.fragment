@@ -1,0 +1,26 @@
+fragment FullConversation on MessengerConversation {
+	id
+	visibility
+	otherParticipants {
+		...MessengerFullUser
+	}
+	readState {
+		markedAsUnread
+		unreadMessageCount
+		lastReadConversationMessage {
+			id
+		}
+	}
+	latestConversationMessage {
+		...ConversationMessage
+	}
+	conversationMessages(
+		limit: $messageCount
+		beforeMessageId: $beforeMessageId
+	) @connection(key: "conversationMessages") {
+		messages {
+			...ConversationMessage
+		}
+		hasMore
+	}
+}

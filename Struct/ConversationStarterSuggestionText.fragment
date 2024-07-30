@@ -1,0 +1,4 @@
+fragment ConversationStarterSuggestionText on ConversationStarterSuggestionText {
+	formattedText
+	text
+}

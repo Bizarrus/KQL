@@ -1,0 +1,17 @@
+mutation MessengerMarkConversationAsUnread($id: ID!) {
+	messenger {
+		markConversationUnread(id: $id) {
+			error
+			conversation {
+				id
+				readState {
+					lastReadConversationMessage {
+						id
+					}
+					markedAsUnread
+					unreadMessageCount
+				}
+			}
+		}
+	}
+}

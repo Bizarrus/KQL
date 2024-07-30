@@ -1,0 +1,12 @@
+subscription PrivacySettingsSubscription {
+	privacySettingsChanged {
+		friendsPrivacyType
+		knuddelPrivacyType
+		nicknameChangeOptions {
+			...NicknameChangeOptions
+		}
+		nicknameHistory {
+			...NicknameHistorySettings
+		}
+	}
+}

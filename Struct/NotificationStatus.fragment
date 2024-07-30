@@ -1,0 +1,8 @@
+fragment NotificationStatus on NotificationStatus {
+	... on NotificationDisabled {
+		unused
+	}
+	... on NotificationEnabled {
+		...NotificationEnabled
+	}
+}

@@ -1,0 +1,18 @@
+mutation SendNicknameChangeSmileyReaction(
+	$conversationId: ID!
+	$smileyId: ID!
+	$messageCorrelationId: ID!
+) {
+	messenger {
+		sendNicknameChangeReactionSmiley(
+			conversationId: $conversationId
+			smileyId: $smileyId
+			messageCorrelationId: $messageCorrelationId
+		) {
+			error {
+				filterReason
+				type
+			}
+		}
+	}
+}

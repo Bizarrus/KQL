@@ -1,0 +1,10 @@
+mutation EditRelationshipStatusEntry(
+	$field: ProfileEditField!
+	$value: RelationshipStatus
+) {
+	user {
+		editProfileEntryRelationshipStatus(field: $field, value: $value) {
+			error
+		}
+	}
+}

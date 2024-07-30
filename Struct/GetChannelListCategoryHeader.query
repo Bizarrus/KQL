@@ -1,0 +1,8 @@
+query GetChannelListCategoryHeader($categoryId: ID!) {
+	channel {
+		category(id: $categoryId) {
+			id
+			name
+		}
+	}
+}

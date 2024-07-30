@@ -1,0 +1,5 @@
+fragment MessengerFullUser on User {
+	...MessengerOverviewUser
+	isIgnoring
+	isAllowedByContactFilter
+}

@@ -1,0 +1,23 @@
+fragment Notification on Notification {
+	key
+	title
+	description
+	icon {
+		subtitle {
+			text
+			color {
+				lightThemeColor {
+					...Color
+				}
+				darkThemeColor {
+					...Color
+				}
+			}
+		}
+		url
+	}
+	callToAction {
+		text
+		slashCommand
+	}
+}

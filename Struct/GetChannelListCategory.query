@@ -1,0 +1,11 @@
+query GetChannelListCategory(
+	$categoryId: ID!
+	$groupAmount: Int!
+	$pixelDensity: Float!
+) {
+	channel {
+		category(id: $categoryId) {
+			...ChannelCategory
+		}
+	}
+}

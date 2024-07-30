@@ -1,0 +1,14 @@
+mutation CreateImageUploadUrl(
+	$conversationId: ID!
+	$expirationTimeInSeconds: Int
+) {
+	messenger {
+		createImageUploadUrl(
+			conversationId: $conversationId
+			expirationTimeInSeconds: $expirationTimeInSeconds
+		) {
+			url
+			error
+		}
+	}
+}

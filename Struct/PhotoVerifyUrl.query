@@ -1,0 +1,12 @@
+query PhotoVerifyUrl {
+	user {
+		photoVerifyUrl {
+			... on PhotoVerifyUrl {
+				url
+			}
+			... on InternalError {
+				__typename
+			}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+mutation EditSmokerEntry($field: ProfileEditField!, $value: Smoker) {
+	user {
+		editProfileEntrySmoker(field: $field, value: $value) {
+			error
+		}
+	}
+}

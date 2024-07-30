@@ -1,0 +1,7 @@
+query SmileyDetails($id: ID!) {
+	smileybox {
+		smileyDetails(id: $id) {
+			...Smiley
+		}
+	}
+}

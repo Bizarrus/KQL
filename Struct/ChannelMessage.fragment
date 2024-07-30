@@ -1,0 +1,37 @@
+fragment ChannelMessage on ChannelMsg {
+	... on ChannelMsgAction {
+		id
+		sender {
+			...ChannelMsgUser
+		}
+		formattedText
+		iconFormattedText
+	}
+	... on ChannelMsgPublic {
+		id
+		sender {
+			...ChannelMsgUser
+		}
+		formattedText
+	}
+	... on ChannelMsgSystem {
+		id
+		sender {
+			...ChannelMsgUser
+		}
+		formattedText
+		sentFromChannel {
+			id
+		}
+	}
+	... on ChannelMsgPrivateGroup {
+		id
+		sender {
+			...ChannelMsgUser
+		}
+		formattedText
+		receiver {
+			...ChannelMsgUser
+		}
+	}
+}

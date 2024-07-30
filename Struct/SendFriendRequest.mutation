@@ -1,0 +1,27 @@
+mutation SendFriendRequest($userId: ID!) {
+	contacts {
+		sendFriendRequest(userId: $userId) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+			... on NotAllowedByReceiverError {
+				unused
+			}
+			... on ReceiverFriendLimitReachedError {
+				unused
+			}
+			... on SenderFriendLimitReachedError {
+				unused
+			}
+			... on TooManyRequestsError {
+				unused
+			}
+			... on ConversationDepthNotReachedError {
+				unused
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+mutation StartIosPayment($productId: ID!) {
+	payment {
+		startIosPayment(product: $productId) {
+			productInfo {
+				skuIds
+				isSubscription
+			}
+			error
+		}
+	}
+}

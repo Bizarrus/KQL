@@ -1,0 +1,10 @@
+query profileVisitors($pixelDensity: Float!) {
+	user {
+		profileVisitors {
+			visitors {
+				...ProfileVisitorsUser
+			}
+			visibilityStatus
+		}
+	}
+}

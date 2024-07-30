@@ -1,0 +1,7 @@
+mutation FinishIosPayment($payload: String!, $transactionId: String) {
+	payment {
+		finishIosPayment(receipt: $payload, transactionId: $transactionId) {
+			error
+		}
+	}
+}

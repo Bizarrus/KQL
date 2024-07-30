@@ -1,0 +1,12 @@
+mutation UpdateMentorPauseState($state: MentorPauseState!) {
+	mentor {
+		changeMentorPauseState(state: $state) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

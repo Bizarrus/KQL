@@ -1,0 +1,11 @@
+mutation RestoreConversation($id: ID!) {
+	messenger {
+		restoreConversation(id: $id) {
+			error
+			conversation {
+				id
+				visibility
+			}
+		}
+	}
+}

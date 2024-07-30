@@ -1,0 +1,18 @@
+fragment AutocompleteChannelGroup on ChannelGroup {
+	id
+	name
+	info {
+		backgroundColor {
+			red
+			green
+			blue
+			alpha
+		}
+		previewImageUrl
+	}
+	channels {
+		id
+		name
+		onlineUserCount
+	}
+}

@@ -1,0 +1,12 @@
+mutation EnableWatchlistNotification {
+	notificationSettings {
+		enableWatchlistNotification {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

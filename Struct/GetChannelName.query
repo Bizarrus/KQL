@@ -1,0 +1,8 @@
+query GetChannelName($channelId: ID!) {
+	channel {
+		channel(id: $channelId) {
+			id
+			name
+		}
+	}
+}

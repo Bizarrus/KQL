@@ -1,0 +1,12 @@
+mutation RemoveFromWatchlist($userId: ID!) {
+	contacts {
+		removeFromWatchlist(userId: $userId) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

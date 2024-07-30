@@ -1,0 +1,5 @@
+mutation SetOffline {
+	user {
+		setOffline
+	}
+}

@@ -1,0 +1,6 @@
+subscription FriendStateChangedEvent {
+	friendStateChanged {
+		id
+		friendState
+	}
+}

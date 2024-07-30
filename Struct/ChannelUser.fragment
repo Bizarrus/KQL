@@ -1,0 +1,14 @@
+fragment ChannelUser on User {
+	id
+	nick
+	age
+	gender
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 40)
+	}
+	profilePictureOverlayUrls {
+		...ProfilePictureOverlays
+	}
+	friendState
+	menteeStatus
+}

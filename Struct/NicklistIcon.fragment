@@ -1,0 +1,6 @@
+fragment NicklistIcon on NicklistIcon {
+	iconName
+	iconFormattedText
+	listType
+	index
+}

@@ -1,0 +1,7 @@
+mutation RemoveFirebaseId($instanceId: String!) {
+	pushnotification {
+		removeFirebaseInstanceId(instanceId: $instanceId) {
+			__typename
+		}
+	}
+}

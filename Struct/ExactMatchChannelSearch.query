@@ -1,0 +1,7 @@
+query ExactMatchChannelSearch($searchText: String!, $pixelDensity: Float!) {
+	channel {
+		channelGroup(name: $searchText) {
+			...SearchChannelGroup
+		}
+	}
+}

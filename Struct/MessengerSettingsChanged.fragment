@@ -1,0 +1,5 @@
+fragment MessengerSettingsChanged on MessengerSettingsChanged {
+	settings {
+		conversationListFilterType
+	}
+}

@@ -1,0 +1,15 @@
+fragment AlbumPhotoComment on AlbumPhotoComment {
+	id
+	text
+	timestamp
+	sender {
+		id
+		nick
+		profilePicture {
+			urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 40)
+		}
+		profilePictureOverlayUrls {
+			...ProfilePictureOverlays
+		}
+	}
+}

@@ -1,0 +1,12 @@
+fragment MessengerConversationReadStateChanged on MessengerConversationReadStateChanged {
+	conversation {
+		id
+		readState {
+			lastReadConversationMessage {
+				id
+			}
+			markedAsUnread
+			unreadMessageCount
+		}
+	}
+}

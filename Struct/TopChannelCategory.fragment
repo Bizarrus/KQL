@@ -1,0 +1,22 @@
+fragment TopChannelCategory on TopGameChannel {
+	group {
+		id
+		name
+		info {
+			...ChannelGroupInfo
+		}
+		channels {
+			...Channel
+		}
+		onlineContacts {
+			...ChannelListContact
+		}
+	}
+	longDescription
+	headerImage
+	glowOverlay
+	games {
+		pictureUrl
+	}
+	gameCount
+}

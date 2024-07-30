@@ -1,0 +1,21 @@
+mutation CreateAlbumPhotoUploadUrl($albumId: ID!) {
+	user {
+		createAlbumPhotoUploadUrl(albumId: $albumId) {
+			... on CreateAlbumPhotoUploadUrlSuccess {
+				albumPhotoUploadUrl
+			}
+			... on InternalError {
+				unused
+			}
+			... on NotFoundError {
+				unused
+			}
+			... on FakeSuspectError {
+				unused
+			}
+			... on PhotoUploadBlockedError {
+				blockedUntil
+			}
+		}
+	}
+}

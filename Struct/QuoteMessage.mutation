@@ -1,0 +1,18 @@
+mutation QuoteMessage(
+	$messageId: ID!
+	$text: String!
+	$messageCorrelationId: ID!
+) {
+	messenger {
+		quoteMessage(
+			messageId: $messageId
+			text: $text
+			messageCorrelationId: $messageCorrelationId
+		) {
+			error {
+				filterReason
+				type
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+fragment ConversationStarterSuggestionSmiley on ConversationStarterSuggestionSmiley {
+	smiley {
+		...Smiley
+	}
+}

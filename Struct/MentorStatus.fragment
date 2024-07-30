@@ -1,0 +1,11 @@
+fragment MentorStatus on MentorStatus {
+	... on MentorStatusActive {
+		...MentorStatusActive
+	}
+	... on MentorStatusAvailable {
+		unused
+	}
+	... on MentorStatusDisabled {
+		unused
+	}
+}

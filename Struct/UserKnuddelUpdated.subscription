@@ -1,0 +1,5 @@
+subscription UserKnuddelUpdated($id: ID!) {
+	userChanged(config: { userId: $id, fields: [KnuddelAmount] }) {
+		...UserKnuddel
+	}
+}

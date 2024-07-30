@@ -1,0 +1,7 @@
+query GetChannelCategories($groupAmount: Int!, $pixelDensity: Float!) {
+	channel {
+		categories {
+			...ChannelCategory
+		}
+	}
+}

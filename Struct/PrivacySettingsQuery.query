@@ -1,0 +1,14 @@
+query PrivacySettingsQuery {
+	user {
+		privacySettings {
+			friendsPrivacyType
+			knuddelPrivacyType
+			nicknameChangeOptions {
+				...NicknameChangeOptions
+			}
+			nicknameHistory {
+				...NicknameHistorySettings
+			}
+		}
+	}
+}

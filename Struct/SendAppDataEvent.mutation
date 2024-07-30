@@ -1,0 +1,7 @@
+mutation SendAppDataEvent($event: AppDataEventInput!) {
+	apps {
+		sendAppDataEvent(event: $event) {
+			unused
+		}
+	}
+}

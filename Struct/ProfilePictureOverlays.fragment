@@ -1,0 +1,4 @@
+fragment ProfilePictureOverlays on ProfilePictureOverlays {
+	urlsLarge
+	urlsSmall
+}

@@ -1,0 +1,15 @@
+mutation EditAlbumTitle($id: ID!, $title: String!) {
+	user {
+		changeAlbumTitle(albumId: $id, newTitle: $title) {
+			... on ChangeAlbumTitleSuccess {
+				title
+			}
+			... on InternalError {
+				unused
+			}
+			... on NotFoundError {
+				unused
+			}
+		}
+	}
+}

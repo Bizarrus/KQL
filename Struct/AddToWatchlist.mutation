@@ -1,0 +1,15 @@
+mutation AddToWatchlist($userId: ID!) {
+	contacts {
+		addToWatchlist(userId: $userId) {
+			... on Success {
+				unused
+			}
+			... on WatchlistLimitReachedError {
+				limit
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

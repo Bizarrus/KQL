@@ -1,0 +1,11 @@
+subscription OwnProfilePictureChanged($id: ID!, $pixelDensity: Float!) {
+	userChanged(config: { userId: $id, fields: [ProfilePicture] }) {
+		...ProfilePictureUser
+		... on User {
+			profilePicture {
+				urlVeryLarge
+				urlLargeSquare
+			}
+		}
+	}
+}

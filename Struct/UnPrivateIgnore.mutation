@@ -1,0 +1,7 @@
+mutation UnPrivateIgnore($id: ID!) {
+	user {
+		unPrivateIgnore(userId: $id) {
+			error
+		}
+	}
+}

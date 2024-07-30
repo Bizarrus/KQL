@@ -1,0 +1,12 @@
+mutation ChangeNicknameChangeOptions($change: NicknameChangeOptionsInput!) {
+	user {
+		changeNicknameChangeOptions(change: $change) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

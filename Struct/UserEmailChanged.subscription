@@ -1,0 +1,6 @@
+subscription UserEmailChanged($userId: ID!) {
+	userChanged(config: { userId: $userId, fields: [Email] }) {
+		id
+		email
+	}
+}

@@ -1,0 +1,14 @@
+fragment ConversationNestedMessageContent on ConversationNestedMessageContent {
+	... on ConversationTextMessageContent {
+		starred
+		formattedText
+	}
+	... on ConversationImageMessageContent {
+		starred
+		image {
+			url
+		}
+		imageAccepted
+		sensitiveContentClassification
+	}
+}

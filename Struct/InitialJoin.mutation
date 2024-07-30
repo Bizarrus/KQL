@@ -1,0 +1,12 @@
+mutation InitialJoin($force: Boolean, $pixelDensity: Float!) {
+	channel {
+		initialJoin(force: $force) {
+			channels {
+				...ActiveChannel
+			}
+			error {
+				...ChannelJoinError
+			}
+		}
+	}
+}

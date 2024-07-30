@@ -1,0 +1,4 @@
+fragment UserWithAdFree on User {
+	id
+	isAdFree
+}

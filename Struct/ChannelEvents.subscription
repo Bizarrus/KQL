@@ -1,0 +1,87 @@
+subscription ChannelEvents($pixelDensity: Float!) {
+	channelEvent {
+		... on ChannelMessageReceived {
+			channel {
+				id
+			}
+			msg {
+				...ChannelMessage
+			}
+		}
+		... on ChannelUserJoined {
+			channel {
+				id
+			}
+			participant {
+				user {
+					...ChannelUser
+				}
+				nicklistPriority
+			}
+		}
+		... on ChannelUserLeft {
+			channel {
+				id
+			}
+			user {
+				id
+			}
+		}
+		... on NicklistIconsAdded {
+			channel {
+				id
+			}
+			participants {
+				user {
+					id
+				}
+				iconsToAdd {
+					...NicklistIcon
+				}
+				nicklistColor
+			}
+		}
+		... on NicklistIconRemoved {
+			channel {
+				id
+			}
+			user {
+				id
+			}
+			iconName
+		}
+		... on ProfilePictureChanged {
+			channel {
+				id
+			}
+			user {
+				...ProfilePictureUser
+			}
+		}
+		... on ProfilePictureOverlaysChanged {
+			channel {
+				id
+			}
+			user {
+				id
+				profilePictureOverlayUrls {
+					...ProfilePictureOverlays
+				}
+			}
+		}
+		... on ChannelPasswordRequired {
+			channel {
+				id
+			}
+		}
+		... on NicklistPriorityChanged {
+			channel {
+				id
+			}
+			user {
+				id
+			}
+			nicklistPriority
+		}
+	}
+}

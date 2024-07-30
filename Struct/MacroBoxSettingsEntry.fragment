@@ -1,0 +1,4 @@
+fragment MacroBoxSettingsEntry on MacroBoxSettingsEntry {
+	id
+	active
+}

@@ -1,0 +1,6 @@
+fragment IgnoreStateChanged on User {
+	id
+	ignoreState
+	canReceiveMessages
+	canReceivePhotoComments
+}

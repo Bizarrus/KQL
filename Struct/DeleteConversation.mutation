@@ -1,0 +1,11 @@
+mutation DeleteConversation($id: ID!) {
+	messenger {
+		deleteConversation(id: $id) {
+			error
+			conversation {
+				id
+				visibility
+			}
+		}
+	}
+}

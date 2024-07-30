@@ -1,0 +1,12 @@
+mutation DisableTanSystem {
+	tan {
+		disableTan {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

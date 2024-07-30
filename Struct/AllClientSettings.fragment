@@ -1,0 +1,28 @@
+fragment AllClientSettings on ClientSettings {
+	conversationListFilterType
+	initialJoinBehavior
+	enabledSoundEvents
+	mentorBarExtended
+	contactListTabs {
+		tabs {
+			tab
+			active
+			toggleable
+		}
+	}
+	privateMessageReplyBehavior
+	macroBoxQuickAccessEntries {
+		...MacroBoxSettingsEntry
+	}
+	macroBoxInteractionEntries {
+		...MacroBoxSettingsEntry
+	}
+	macroBoxEnabled
+	channelListCategories {
+		categories {
+			category
+			active
+		}
+	}
+	navIconSlot
+}

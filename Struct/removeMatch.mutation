@@ -1,0 +1,5 @@
+mutation removeMatch($id: ID!) {
+	fotomeet {
+		removeMatchedUser(id: $id)
+	}
+}

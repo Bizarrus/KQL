@@ -1,0 +1,16 @@
+query GetAlbumInfoForProfile($userId: ID!) {
+	user {
+		user(id: $userId) {
+			albumPhotos(limit: 12) {
+				id
+				thumbnailUrl
+			}
+			albums {
+				...Album
+			}
+			albumProfilePhoto {
+				...AlbumDetailPhoto
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+mutation EnableSensitiveContentWarning {
+	notificationSettings {
+		enableSensitiveContentWarning {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

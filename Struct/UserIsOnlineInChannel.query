@@ -1,0 +1,7 @@
+query UserIsOnlineInChannel($id: ID!) {
+	user {
+		user(id: $id) {
+			...UserWithOnlineAndChannel
+		}
+	}
+}

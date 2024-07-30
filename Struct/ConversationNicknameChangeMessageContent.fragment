@@ -1,0 +1,4 @@
+fragment ConversationNicknameChangeMessageContent on ConversationNicknameChangeMessageContent {
+	oldNick
+	newNick
+}

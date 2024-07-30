@@ -1,0 +1,11 @@
+fragment Channel on Channel {
+	id
+	name
+	onlineUserCount
+	onlineContacts {
+		...ChannelListContact
+	}
+	previewMembers {
+		...ChannelPreviewMembers
+	}
+}

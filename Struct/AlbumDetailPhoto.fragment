@@ -1,0 +1,11 @@
+fragment AlbumDetailPhoto on AlbumPhoto {
+	id
+	thumbnailUrl
+	photoUrl
+	administrationUrl
+	description {
+		formattedText
+		rawText
+	}
+	isOwner
+}

@@ -1,0 +1,9 @@
+query ReactionSmileys {
+	smileybox {
+		reactionSmileys {
+			id
+			image
+			textRepresentation
+		}
+	}
+}

@@ -1,0 +1,4 @@
+fragment ChannelMsgUser on User {
+	id
+	nick
+}

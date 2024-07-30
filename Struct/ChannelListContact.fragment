@@ -1,0 +1,6 @@
+fragment ChannelListContact on User {
+	id
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 40)
+	}
+}

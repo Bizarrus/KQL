@@ -1,0 +1,8 @@
+fragment NotificationEnabled on NotificationEnabled {
+	notifyBirthday
+	notifyCommunityStatusChange
+	notifyProfileChange
+	notifyProfilePictureChange
+	notifyTeamJoin
+	notifyNicknameChange
+}

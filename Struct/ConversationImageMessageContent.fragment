@@ -1,0 +1,8 @@
+fragment ConversationImageMessageContent on ConversationImageMessageContent {
+	starred
+	image {
+		url
+	}
+	imageAccepted
+	sensitiveContentClassification
+}

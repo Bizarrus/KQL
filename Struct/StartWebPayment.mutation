@@ -1,0 +1,8 @@
+mutation StartWebPayment($productId: ID!) {
+	payment {
+		startWebPayment(product: $productId) {
+			error
+			paymentUrl
+		}
+	}
+}

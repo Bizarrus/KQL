@@ -1,0 +1,14 @@
+query RefreshSessionToken(
+	$sessionInfo: SessionInfo!
+	$oldSessionToken: SessionToken
+) {
+	login {
+		refreshSession(sessionInfo: $sessionInfo, token: $oldSessionToken) {
+			... on RefreshSessionSuccess {
+				expiry
+				token
+			}
+			...RefreshSessionError
+		}
+	}
+}

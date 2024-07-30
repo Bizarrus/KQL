@@ -1,0 +1,14 @@
+mutation UpdateAdultChannelsShownInLastVisited($shown: Boolean!) {
+	user {
+		updateAdultChannelsShownInLastVisited(
+			adultChannelsShownInLastVisited: $shown
+		) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+fragment PotentialMenteeAddedEvent on PotentialMenteeAddedEvent {
+	user {
+		id
+		nick
+		age
+		gender
+		currentOnlineChannelName
+		isOnline
+		conversationId
+		menteeStatus
+		interest
+		latestClient
+	}
+}

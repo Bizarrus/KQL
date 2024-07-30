@@ -1,0 +1,7 @@
+mutation Ignore($id: ID!) {
+	user {
+		ignore(userId: $id) {
+			error
+		}
+	}
+}

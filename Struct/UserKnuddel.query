@@ -1,0 +1,7 @@
+query UserKnuddel($id: ID!) {
+	user {
+		user(id: $id) {
+			...UserKnuddel
+		}
+	}
+}

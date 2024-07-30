@@ -1,0 +1,14 @@
+fragment ChannelGroupInfo on ChannelGroupInfo {
+	previewImageUrl
+	previewImageInfo(width: 306, height: 306, blur: 40) {
+		url
+		urlBlurred
+	}
+	isSpecialPreviewImage
+	backgroundColor {
+		...Color
+	}
+	shortDescription
+	mainCategoryName
+	isMyChannel
+}

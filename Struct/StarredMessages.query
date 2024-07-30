@@ -1,0 +1,15 @@
+query StarredMessages(
+	$limit: Int!
+	$before: UtcTimestamp = null
+	$pixelDensity: Float!
+) {
+	messenger {
+		starredConversationMessages(limit: $limit, before: $before)
+			@connection(key: "messages") {
+			messages {
+				...StarredConversationMessage
+			}
+			hasMore
+		}
+	}
+}

@@ -1,0 +1,8 @@
+query CreateDeviceToken($username: String!, $password: String!) {
+	login {
+		createDeviceToken(username: $username, password: $password) {
+			result
+			token
+		}
+	}
+}

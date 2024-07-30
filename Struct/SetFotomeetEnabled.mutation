@@ -1,0 +1,12 @@
+mutation SetFotomeetEnabled($enabled: Boolean!) {
+	fotomeet {
+		setFotomeetEnabled(enabled: $enabled) {
+			... on InternalError {
+				unused
+			}
+			... on Success {
+				unused
+			}
+		}
+	}
+}

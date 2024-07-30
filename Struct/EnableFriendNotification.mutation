@@ -1,0 +1,12 @@
+mutation EnableFriendNotification {
+	notificationSettings {
+		enableFriendNotification {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

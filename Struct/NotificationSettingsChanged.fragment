@@ -1,0 +1,11 @@
+fragment NotificationSettingsChanged on NotificationSettingsChanged {
+	friendStatus {
+		...NotificationStatus
+	}
+	watchlistStatus {
+		...NotificationStatus
+	}
+	sensitiveContentSettings {
+		warnOnSensitiveContent
+	}
+}

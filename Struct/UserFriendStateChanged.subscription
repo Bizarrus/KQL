@@ -1,0 +1,6 @@
+subscription UserFriendStateChanged($userId: ID!) {
+	userChanged(config: { userId: $userId, fields: [FriendState] }) {
+		id
+		friendState
+	}
+}

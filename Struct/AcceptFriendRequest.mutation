@@ -1,0 +1,12 @@
+mutation AcceptFriendRequest($userId: ID!) {
+	contacts {
+		acceptFriendRequest(userId: $userId) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

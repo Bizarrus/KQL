@@ -1,0 +1,9 @@
+subscription VerifiedDataSubscription($id: ID!) {
+	userChanged(
+		config: { userId: $id, fields: [Email, VerifiedPhoneNumber] }
+	) {
+		id
+		email
+		verifiedPhoneNumber
+	}
+}

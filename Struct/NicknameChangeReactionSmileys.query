@@ -1,0 +1,17 @@
+query NicknameChangeReactionSmileys($conversationId: ID!) {
+	messenger {
+		nicknameChangeReactions(conversationId: $conversationId) {
+			... on NicknameChangeReactionText {
+				text
+				formattedText
+			}
+			... on NicknameChangeReactionSmiley {
+				smiley {
+					id
+					image
+					textRepresentation
+				}
+			}
+		}
+	}
+}

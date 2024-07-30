@@ -1,0 +1,7 @@
+mutation AllowImages($userId: ID!) {
+	user {
+		allowImages(userId: $userId) {
+			error
+		}
+	}
+}

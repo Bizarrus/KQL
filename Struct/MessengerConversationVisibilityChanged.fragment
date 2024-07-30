@@ -1,0 +1,6 @@
+fragment MessengerConversationVisibilityChanged on MessengerConversationVisibilityChanged {
+	conversation {
+		id
+		visibility
+	}
+}

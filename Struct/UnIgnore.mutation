@@ -1,0 +1,7 @@
+mutation UnIgnore($id: ID!) {
+	user {
+		unignore(userId: $id) {
+			error
+		}
+	}
+}

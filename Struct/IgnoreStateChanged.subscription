@@ -1,0 +1,5 @@
+subscription IgnoreStateChanged {
+	ignoreStateChanged {
+		...IgnoreStateChanged
+	}
+}

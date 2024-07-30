@@ -1,0 +1,5 @@
+fragment MessengerMessageStarredStateChanged on MessengerMessageStarredStateChanged {
+	starredMessage {
+		...StarredConversationMessage
+	}
+}

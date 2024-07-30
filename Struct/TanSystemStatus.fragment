@@ -1,0 +1,15 @@
+fragment TanSystemStatus on TanStatus {
+	... on TanDisabled {
+		unused
+	}
+	... on TanEnabled {
+		confirmMobileNumberChange
+		confirmEmailChange
+		confirmPasswordChange
+		confirmSmileyTrade
+		confirmSmileyCodeUse
+		confirmKnuddelTransfer
+		confirmKnuddelTransferAmount
+		confirmNickSwitch
+	}
+}

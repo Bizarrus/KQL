@@ -1,0 +1,10 @@
+query EditProfileEntries {
+	user {
+		profileEditEntries {
+			...EditProfileEntry
+		}
+	}
+	payment {
+		nickSwitchKnuddelCost
+	}
+}

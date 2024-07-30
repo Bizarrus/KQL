@@ -1,0 +1,13 @@
+query GetCachedUserData($userId: ID!, $pixelDensity: Float!) {
+	user {
+		user(id: $userId) {
+			id
+			nick
+			gender
+			age
+			profilePicture {
+				urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 40)
+			}
+		}
+	}
+}

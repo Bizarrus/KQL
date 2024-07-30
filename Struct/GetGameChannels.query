@@ -1,0 +1,12 @@
+query GetGameChannels($groupAmount: Int!, $pixelDensity: Float!) {
+	channel {
+		gameCategories {
+			top {
+				...TopChannelCategory
+			}
+			all {
+				...ChannelCategory
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+mutation UpdateAdultChannelsVisible($visible: Boolean!) {
+	user {
+		updateAdultChannelsVisible(adultChannelsVisible: $visible) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

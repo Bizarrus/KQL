@@ -1,0 +1,15 @@
+mutation DeleteProfilePicture {
+	user {
+		deleteProfileImage {
+			user {
+				id
+				profilePicture {
+					urlLargeSquare
+					urlVeryLarge
+					exists
+				}
+			}
+			error
+		}
+	}
+}

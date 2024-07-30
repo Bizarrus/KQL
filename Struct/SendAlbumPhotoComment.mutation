@@ -1,0 +1,22 @@
+mutation SendAlbumPhotoComment(
+	$albumPhotoId: ID!
+	$text: String!
+	$pixelDensity: Float!
+) {
+	user {
+		commentAlbumPhoto(albumPhotoId: $albumPhotoId, text: $text) {
+			... on AlbumPhotoComment {
+				...AlbumPhotoComment
+			}
+			... on NotFoundError {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+			... on CantCommentError {
+				reason
+			}
+		}
+	}
+}

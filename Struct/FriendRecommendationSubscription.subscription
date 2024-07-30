@@ -1,0 +1,5 @@
+subscription FriendRecommendationSubscription {
+	friendRecommendationInConversationEvent {
+		conversationId
+	}
+}

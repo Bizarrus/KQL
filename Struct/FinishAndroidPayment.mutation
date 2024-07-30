@@ -1,0 +1,7 @@
+mutation FinishAndroidPayment($payload: String!) {
+	payment {
+		finishAndroidPayment(payload: $payload) {
+			error
+		}
+	}
+}

@@ -1,0 +1,18 @@
+mutation CreateNewAlbum($position: Int!, $title: String!) {
+	user {
+		createAlbum(position: $position, title: $title) {
+			... on Album {
+				...Album
+			}
+			... on AlbumLimitReachedError {
+				unused
+			}
+			... on FakeSuspectError {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

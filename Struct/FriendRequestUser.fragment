@@ -1,0 +1,12 @@
+fragment FriendRequestUser on User {
+	id
+	nick
+	age
+	gender
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 60)
+	}
+	profilePictureOverlayUrls {
+		...ProfilePictureOverlays
+	}
+}

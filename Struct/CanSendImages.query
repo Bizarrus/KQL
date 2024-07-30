@@ -1,0 +1,8 @@
+query CanSendImages($userId: ID!) {
+	user {
+		user(id: $userId) {
+			id
+			canSendImages
+		}
+	}
+}

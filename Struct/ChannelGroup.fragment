@@ -1,0 +1,16 @@
+fragment ChannelGroup on ChannelGroup {
+	id
+	name
+	info {
+		...ChannelGroupInfo
+	}
+	channels {
+		...Channel
+	}
+	onlineContacts {
+		...ChannelListContact
+	}
+	previewMembers {
+		...ChannelPreviewMembers
+	}
+}

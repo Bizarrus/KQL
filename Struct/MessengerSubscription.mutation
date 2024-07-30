@@ -1,0 +1,14 @@
+subscription MessengerSubscription($pixelDensity: Float!) {
+	messengerEvent {
+		... on MessengerMessageStarredStateChanged {
+			...MessengerMessageStarredStateChanged
+		}
+		...MessengerMessageReceived
+		...MessengerSettingsChanged
+		...MessengerUserTypingStarted
+		...MessengerUserTypingStopped
+		...MessengerConversationReadStateChanged
+		...MessengerConversationVisibilityChanged
+		...MessengerMessageChanged
+	}
+}

@@ -1,0 +1,23 @@
+mutation JoinChannelById(
+	$channelId: ID!
+	$password: String
+	$pixelDensity: Float!
+	$confirmed: Boolean
+	$mayJoinSubChannelIfFull: Boolean
+) {
+	channel {
+		joinById(
+			id: $channelId
+			password: $password
+			confirmed: $confirmed
+			mayJoinSubChannelIfFull: $mayJoinSubChannelIfFull
+		) {
+			channel {
+				...ActiveChannel
+			}
+			error {
+				...ChannelJoinError
+			}
+		}
+	}
+}

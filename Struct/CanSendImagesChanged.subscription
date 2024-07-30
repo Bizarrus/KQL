@@ -1,0 +1,6 @@
+subscription CanSendImagesChanged {
+	canSendImagesChanged {
+		id
+		canSendImages
+	}
+}

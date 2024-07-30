@@ -1,0 +1,21 @@
+fragment MacroBoxUser on User {
+	id
+	nick
+	age
+	gender
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 60)
+	}
+	profilePictureOverlayUrls {
+		...ProfilePictureOverlays
+	}
+	city
+	ignoreState
+	isReportable
+	isAppBot
+	menteeStatus
+	authenticityClassification
+	canReceiveMessages
+	conversationId
+	isAllowedByContactFilter
+}

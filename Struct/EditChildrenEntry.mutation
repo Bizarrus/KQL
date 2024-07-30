@@ -1,0 +1,7 @@
+mutation EditChildrenEntry($field: ProfileEditField!, $value: Children) {
+	user {
+		editProfileEntryChildren(field: $field, value: $value) {
+			error
+		}
+	}
+}

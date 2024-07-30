@@ -1,0 +1,10 @@
+subscription PaymentSubscription {
+	paymentEvent {
+		... on PaymentSucceeded {
+			productId
+		}
+		... on PaymentFailed {
+			productId
+		}
+	}
+}

@@ -1,0 +1,18 @@
+mutation SendSlashCommand($event: SlashCommandInput!) {
+	apps {
+		sendSlashCommand(event: $event) {
+			... on SendSlashCommandSuccess {
+				unused
+			}
+			... on SendSlashCommandInternalError {
+				unused
+			}
+			... on SendSlashCommandNotFoundError {
+				unused
+			}
+			... on SendSlashCommandNotSupportedError {
+				unused
+			}
+		}
+	}
+}

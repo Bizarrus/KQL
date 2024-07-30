@@ -1,0 +1,10 @@
+fragment HappyHour on HappyHourPromotion {
+	color {
+		alpha
+		red
+		blue
+		green
+	}
+	endTimestamp
+	maxBonusPercentage
+}

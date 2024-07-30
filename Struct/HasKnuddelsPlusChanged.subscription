@@ -1,0 +1,8 @@
+subscription HasKnuddelsPlusChanged {
+	hasKnuddelsPlusChanged {
+		id
+		hasKnuddelsPlus
+		knuddelsPlusActiveUntil
+		knuddelsPlusBonusDaysActiveUntil
+	}
+}

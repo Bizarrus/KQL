@@ -1,0 +1,9 @@
+query GetContacts($filter: ContactListFilter, $pixelDensity: Float!) {
+	user {
+		contactList(filter: $filter) {
+			contacts {
+				...ContactsUser
+			}
+		}
+	}
+}

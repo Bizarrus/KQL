@@ -1,0 +1,5 @@
+fragment ConversationPrivateSystemMessageContent on ConversationPrivateSystemMessageContent {
+	icon
+	formattedText
+	collapse
+}

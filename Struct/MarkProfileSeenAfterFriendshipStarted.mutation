@@ -1,0 +1,5 @@
+mutation MarkProfileSeenAfterFriendshipStarted($userId: ID!) {
+	user {
+		markProfileSeenAfterFriendshipStarted(userId: $userId)
+	}
+}

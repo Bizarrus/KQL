@@ -1,0 +1,12 @@
+mutation ChangeNicknameHistoryChecked($checked: Boolean!) {
+	user {
+		changeNicknameHistoryChecked(checked: $checked) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

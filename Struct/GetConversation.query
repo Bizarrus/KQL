@@ -1,0 +1,12 @@
+query GetConversation(
+	$id: ID!
+	$messageCount: Int = 50
+	$beforeMessageId: ID = null
+	$pixelDensity: Float!
+) {
+	messenger {
+		conversation(id: $id) {
+			...FullConversation
+		}
+	}
+}

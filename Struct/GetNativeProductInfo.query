@@ -1,0 +1,7 @@
+query GetNativeProductInfo($skuId: String!) {
+	payment {
+		nativeProductInfo(skuId: $skuId) {
+			isSubscription
+		}
+	}
+}

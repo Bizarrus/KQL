@@ -1,0 +1,7 @@
+mutation BlockImages($userId: ID!) {
+	user {
+		blockImages(userId: $userId) {
+			error
+		}
+	}
+}

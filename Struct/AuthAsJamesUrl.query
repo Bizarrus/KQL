@@ -1,0 +1,15 @@
+query AuthAsJamesUrl {
+	user {
+		photoAuthenticatedAsJamesUrl {
+			... on PhotoAuthenticatedAsJamesUrl {
+				url
+			}
+			... on AccessDeniedError {
+				__typename
+			}
+			... on InternalError {
+				__typename
+			}
+		}
+	}
+}

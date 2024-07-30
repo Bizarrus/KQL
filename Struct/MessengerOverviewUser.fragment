@@ -1,0 +1,33 @@
+fragment MessengerOverviewUser on User {
+	...MessengerBasicUser
+	age
+	albumPhotosUrl
+	canReceiveMessages
+	city
+	distance
+	gender
+	id
+	isOnline
+	currentOnlineChannelName
+	latestOnlineChannelName
+	lastOnlineTime
+	nick
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 60)
+	}
+	profilePictureOverlayUrls {
+		...ProfilePictureOverlays
+	}
+	readMe
+	relationshipStatus
+	sexualOrientation
+	onlineMinutes
+	isAppBot
+	isLockedByAutomaticComplaint
+	automaticComplaintCommand
+	isReportable
+	interest
+	latestClient
+	authenticityClassification
+	ignoreState
+}

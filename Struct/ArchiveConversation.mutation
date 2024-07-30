@@ -1,0 +1,11 @@
+mutation ArchiveConversation($id: ID!) {
+	messenger {
+		archiveConversation(id: $id) {
+			error
+			conversation {
+				id
+				visibility
+			}
+		}
+	}
+}

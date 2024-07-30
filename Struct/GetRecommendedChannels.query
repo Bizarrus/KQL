@@ -1,0 +1,12 @@
+query GetRecommendedChannels($groupAmount: Int!, $pixelDensity: Float!) {
+	channel {
+		recommendedCategories {
+			lastVisited {
+				...ChannelCategory
+			}
+			popular {
+				...ChannelCategory
+			}
+		}
+	}
+}

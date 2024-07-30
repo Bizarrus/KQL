@@ -1,0 +1,15 @@
+mutation ChangeAlbumOrder($newAlbumOrderIds: [ID!]!) {
+	user {
+		changeAlbumOrder(newAlbumOrder: $newAlbumOrderIds) {
+			... on Success {
+				unused
+			}
+			... on NotFoundError {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

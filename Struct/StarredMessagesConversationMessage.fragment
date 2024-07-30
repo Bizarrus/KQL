@@ -1,0 +1,6 @@
+fragment StarredMessagesConversationMessage on ConversationMessage {
+	...ConversationMessage
+	sender {
+		...StarredMessagesUser
+	}
+}

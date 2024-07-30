@@ -1,0 +1,9 @@
+query ActivePromotions {
+	promotions {
+		activePromotions {
+			... on HappyHourPromotion {
+				...HappyHour
+			}
+		}
+	}
+}

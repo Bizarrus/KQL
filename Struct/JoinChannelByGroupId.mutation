@@ -1,0 +1,23 @@
+mutation JoinChannelByGroupId(
+	$groupId: ID!
+	$password: String
+	$adCampaignId: Int
+	$pixelDensity: Float!
+	$confirmed: Boolean
+) {
+	channel {
+		joinByGroupId(
+			id: $groupId
+			password: $password
+			adCampaignId: $adCampaignId
+			confirmed: $confirmed
+		) {
+			channel {
+				...ActiveChannel
+			}
+			error {
+				...ChannelJoinError
+			}
+		}
+	}
+}

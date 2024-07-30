@@ -1,0 +1,14 @@
+query ContactsUserByNick(
+	$nick: String!
+	$pixelDensity: Float!
+	$accountForNickSwitch: Boolean
+) {
+	user {
+		userFromNick(
+			nick: $nick
+			accountForNickSwitch: $accountForNickSwitch
+		) {
+			...ContactsUser
+		}
+	}
+}

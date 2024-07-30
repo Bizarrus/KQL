@@ -1,0 +1,14 @@
+query MessengerConversationReadState($id: ID!) {
+	messenger {
+		conversation(id: $id) {
+			id
+			readState {
+				markedAsUnread
+				unreadMessageCount
+				lastReadConversationMessage {
+					id
+				}
+			}
+		}
+	}
+}

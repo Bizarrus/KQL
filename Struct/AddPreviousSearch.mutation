@@ -1,0 +1,12 @@
+mutation AddPreviousSearch($text: String!) {
+	channel {
+		addPreviousSearch(text: $text) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

@@ -1,0 +1,6 @@
+fragment RefreshSessionError on RefreshSessionError {
+	formattedErrorMessage
+	user {
+		...UserWithLockInfo
+	}
+}

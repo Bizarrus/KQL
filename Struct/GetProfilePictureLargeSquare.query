@@ -1,0 +1,10 @@
+query GetProfilePictureLargeSquare($userId: ID!) {
+	user {
+		user(id: $userId) {
+			id
+			profilePicture {
+				urlLargeSquare
+			}
+		}
+	}
+}

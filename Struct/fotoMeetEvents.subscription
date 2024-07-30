@@ -1,0 +1,10 @@
+subscription fotoMeetEvents {
+	fotomeetEvent {
+		... on FotomeetPotentialMatchCountChanged {
+			potentialMatchCount
+		}
+		... on FotomeetEnabledChanged {
+			enabled
+		}
+	}
+}

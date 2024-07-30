@@ -1,0 +1,8 @@
+query GetCurrentUserGender {
+	user {
+		currentUser {
+			id
+			gender
+		}
+	}
+}

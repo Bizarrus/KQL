@@ -1,0 +1,7 @@
+fragment StarredMessagesUser on User {
+	id
+	nick
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 60)
+	}
+}

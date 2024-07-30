@@ -1,0 +1,16 @@
+fragment ProfileVisitorsUser on User {
+	id
+	nick
+	age
+	gender
+	city
+	isOnline
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 60)
+	}
+	profilePictureOverlayUrls {
+		...ProfilePictureOverlays
+	}
+	isAppBot
+	authenticityClassification
+}

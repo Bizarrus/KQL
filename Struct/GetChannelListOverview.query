@@ -1,0 +1,10 @@
+query GetChannelListOverview($groupAmount: Int!, $pixelDensity: Float!) {
+	channel {
+		channelAds(limit: 3) {
+			...ChannelAd
+		}
+		categories {
+			...ChannelCategory
+		}
+	}
+}

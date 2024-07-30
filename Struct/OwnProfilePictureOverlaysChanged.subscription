@@ -1,0 +1,8 @@
+subscription OwnProfilePictureOverlaysChanged($id: ID!) {
+	userChanged(config: { userId: $id, fields: [ProfilePictureOverlays] }) {
+		id
+		profilePictureOverlayUrls {
+			...ProfilePictureOverlays
+		}
+	}
+}

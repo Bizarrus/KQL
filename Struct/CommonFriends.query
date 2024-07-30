@@ -1,0 +1,17 @@
+query CommonFriends($userId: ID!, $pixelDensity: Float!) {
+	contacts {
+		commonFriends(userId: $userId) {
+			... on InternalError {
+				unused
+			}
+			... on FriendsHiddenByPrivacy {
+				unused
+			}
+			... on FriendList {
+				friends {
+					...CommonFriend
+				}
+			}
+		}
+	}
+}

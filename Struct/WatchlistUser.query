@@ -1,0 +1,8 @@
+query WatchlistUser($userId: ID!) {
+	user {
+		user(id: $userId) {
+			id
+			isOnWatchlist
+		}
+	}
+}

@@ -1,0 +1,18 @@
+mutation DeleteAlbumPhotoComment(
+	$albumPhotoId: ID!
+	$albumPhotoCommentId: ID!
+) {
+	user {
+		deleteAlbumPhotoComment(
+			albumPhotoId: $albumPhotoId
+			albumPhotoCommentId: $albumPhotoCommentId
+		) {
+			... on DeleteAlbumPhotoCommentSuccess {
+				albumPhotoCommentId
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+mutation UpdateClientSettings($settings: ClientUpdateSettings!) {
+	clientSettings {
+		updateSettings(settings: $settings) {
+			error
+			settings {
+				...AllClientSettings
+			}
+		}
+	}
+}

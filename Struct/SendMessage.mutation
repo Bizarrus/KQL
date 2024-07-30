@@ -1,0 +1,7 @@
+mutation SendMessage($channelId: ID!, $text: String!) {
+	channel {
+		sendMessage(id: $channelId, text: $text) {
+			error
+		}
+	}
+}

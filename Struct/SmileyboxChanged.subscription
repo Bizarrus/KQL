@@ -1,0 +1,10 @@
+subscription SmileyboxChanged {
+	smileyBoxEvent {
+		... on SmileyBoxListChanged {
+			listType
+			smileys {
+				id
+			}
+		}
+	}
+}

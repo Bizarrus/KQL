@@ -1,0 +1,10 @@
+query FriendRequests($pixelDensity: Float!) {
+	contacts {
+		sentFriendRequests {
+			...FriendRequestUser
+		}
+		receivedFriendRequests {
+			...FriendRequestUser
+		}
+	}
+}

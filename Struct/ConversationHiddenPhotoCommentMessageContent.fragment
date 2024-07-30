@@ -1,0 +1,5 @@
+fragment ConversationHiddenPhotoCommentMessageContent on ConversationHiddenPhotoCommentMessageContent {
+	albumPhotoId
+	photoUrl
+	formattedText
+}

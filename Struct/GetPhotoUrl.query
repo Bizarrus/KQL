@@ -1,0 +1,13 @@
+query GetPhotoUrl($photoId: ID!) {
+	user {
+		photoUrl(photoId: $photoId) {
+			__typename
+			... on InternalError {
+				unused
+			}
+			... on PhotoUrl {
+				url
+			}
+		}
+	}
+}

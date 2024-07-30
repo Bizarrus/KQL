@@ -1,0 +1,17 @@
+fragment MessengerMessageReceived on MessengerMessageReceived {
+	messageCorrelationId
+	conversationMessage {
+		...ReceivedConversationMessage
+	}
+	conversation {
+		latestConversationMessage {
+			...ReceivedConversationMessage
+		}
+		id
+		otherParticipants {
+			id
+			nick
+		}
+		visibility
+	}
+}

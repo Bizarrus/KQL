@@ -1,0 +1,7 @@
+query RecentSmileys($limit: Int) {
+	smileybox {
+		smileyList(type: RecentlyUsed, limit: $limit) {
+			...Smiley
+		}
+	}
+}

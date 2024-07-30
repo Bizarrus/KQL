@@ -1,0 +1,5 @@
+query GetPreviousSearches {
+	channel {
+		previousSearches
+	}
+}

@@ -1,0 +1,19 @@
+query MessengerOverview(
+	$limit: Int = 20
+	$before: UtcTimestamp = null
+	$pixelDensity: Float!
+	$filterByState: MessengerConversationState = ALL
+) {
+	messenger {
+		conversations(
+			limit: $limit
+			before: $before
+			filterByState: $filterByState
+		) @connection(key: "conversations", filter: ["filterByState"]) {
+			conversations {
+				...FullConversationWithoutMessages
+			}
+			hasMore
+		}
+	}
+}

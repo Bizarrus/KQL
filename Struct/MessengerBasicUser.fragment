@@ -1,0 +1,7 @@
+fragment MessengerBasicUser on User {
+	id
+	nick
+	isOnline
+	canSendImages
+	menteeStatus
+}

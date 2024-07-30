@@ -1,0 +1,6 @@
+fragment Color on Color {
+	alpha
+	blue
+	green
+	red
+}

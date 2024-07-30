@@ -1,0 +1,10 @@
+mutation EditStringListEntry(
+	$field: ProfileEditField!
+	$value: [String!]!
+) {
+	user {
+		editProfileEntryStringList(field: $field, value: $value) {
+			error
+		}
+	}
+}

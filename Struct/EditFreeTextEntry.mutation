@@ -1,0 +1,10 @@
+mutation EditFreeTextEntry($field: ProfileEditField!, $value: String!) {
+	user {
+		editProfileEntryFreeText(field: $field, value: $value) {
+			errorResult {
+				details
+				error
+			}
+		}
+	}
+}

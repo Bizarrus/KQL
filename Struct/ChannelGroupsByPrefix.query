@@ -1,0 +1,7 @@
+query ChannelGroupsByPrefix($prefix: String!) {
+	channel {
+		channelGroups(prefix: $prefix) {
+			...AutocompleteChannelGroup
+		}
+	}
+}

@@ -1,0 +1,13 @@
+query GetNotificationSettings {
+	notificationSettings {
+		friendStatus {
+			...NotificationStatus
+		}
+		watchlistStatus {
+			...NotificationStatus
+		}
+		sensitiveContentSettings {
+			warnOnSensitiveContent
+		}
+	}
+}

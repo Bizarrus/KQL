@@ -1,0 +1,21 @@
+fragment ContactsUser on User {
+	id
+	nick
+	profilePicture {
+		urlCustomSizeSquare(pixelDensity: $pixelDensity, size: 60)
+	}
+	profilePictureOverlayUrls {
+		...ProfilePictureOverlays
+	}
+	isOnline
+	currentOnlineChannelName
+	lastOnlineTime
+	latestOnlineChannelName
+	readMe
+	canReceiveMessages
+	menteeStatus
+	isAppBot
+	authenticityClassification
+	isOnWatchlist
+	friendState
+}

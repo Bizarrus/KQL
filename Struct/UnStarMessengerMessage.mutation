@@ -1,0 +1,7 @@
+mutation UnStarMessengerMessage($id: ID!) {
+	messenger {
+		unstarMessage(messageId: $id) {
+			error
+		}
+	}
+}

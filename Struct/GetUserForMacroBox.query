@@ -1,0 +1,7 @@
+query GetUserForMacroBox($userId: ID!, $pixelDensity: Float!) {
+	user {
+		user(id: $userId) {
+			...MacroBoxUser
+		}
+	}
+}

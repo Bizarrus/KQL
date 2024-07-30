@@ -1,0 +1,12 @@
+mutation ChangeKnuddelPrivacySettings($privacyType: PrivacyType!) {
+	user {
+		changeKnuddelPrivacyType(privacyType: $privacyType) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

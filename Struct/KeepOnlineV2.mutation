@@ -1,0 +1,10 @@
+mutation KeepOnlineV2($clientState: ClientState!) {
+	user {
+		keepOnlineV2(clientState: $clientState) {
+			__typename
+			... on KeepOnlineError {
+				reason
+			}
+		}
+	}
+}

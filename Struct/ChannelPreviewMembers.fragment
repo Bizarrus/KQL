@@ -1,0 +1,11 @@
+fragment ChannelPreviewMembers on ChannelPreviewMembers {
+	friends {
+		...ChannelListContact
+	}
+	watchlist {
+		...ChannelListContact
+	}
+	others {
+		...ChannelListContact
+	}
+}

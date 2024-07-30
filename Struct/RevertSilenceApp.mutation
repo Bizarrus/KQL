@@ -1,0 +1,15 @@
+mutation RevertSilenceApp($channel: String!) {
+	apps {
+		sendRevertSilenceCommand(channel: $channel) {
+			... on SilenceCommandChannelNotFoundError {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+			... on Success {
+				unused
+			}
+		}
+	}
+}

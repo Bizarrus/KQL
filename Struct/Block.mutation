@@ -1,0 +1,7 @@
+mutation Block($id: ID!) {
+	user {
+		block(userId: $id) {
+			error
+		}
+	}
+}

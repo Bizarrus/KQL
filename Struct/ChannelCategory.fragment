@@ -1,0 +1,7 @@
+fragment ChannelCategory on ChannelCategory {
+	id
+	name
+	channelGroups(first: $groupAmount) {
+		...ChannelGroup
+	}
+}

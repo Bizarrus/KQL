@@ -1,0 +1,7 @@
+query GetFeatureFlags {
+	featureFlags {
+		enabledFlags {
+			id
+		}
+	}
+}

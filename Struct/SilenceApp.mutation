@@ -1,0 +1,15 @@
+mutation SilenceApp($channel: String!, $days: Int) {
+	apps {
+		sendSilenceCommand(channel: $channel, days: $days) {
+			... on SilenceCommandChannelNotFoundError {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+			... on Success {
+				unused
+			}
+		}
+	}
+}

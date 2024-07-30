@@ -1,0 +1,14 @@
+mutation UpdateWatchlistNotificationEnabledStatus(
+	$status: NotificationEnabledInput!
+) {
+	notificationSettings {
+		updateWatchlistNotificationEnabledStatus(status: $status) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

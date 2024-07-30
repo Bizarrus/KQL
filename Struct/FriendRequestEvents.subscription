@@ -1,0 +1,24 @@
+subscription FriendRequestEvents($pixelDensity: Float!) {
+	contactsEvent {
+		... on SentFriendRequestAddedEvent {
+			user {
+				...FriendRequestUser
+			}
+		}
+		... on SentFriendRequestRemovedEvent {
+			user {
+				...FriendRequestUser
+			}
+		}
+		... on ReceivedFriendRequestAddedEvent {
+			user {
+				...FriendRequestUser
+			}
+		}
+		... on ReceivedFriendRequestRemovedEvent {
+			user {
+				...FriendRequestUser
+			}
+		}
+	}
+}

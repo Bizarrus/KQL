@@ -1,0 +1,18 @@
+subscription PromotionEvents {
+	promotionEvent {
+		... on PromotionStartedEvent {
+			newPromotion {
+				... on HappyHourPromotion {
+					...HappyHour
+				}
+			}
+		}
+		... on PromotionEndedEvent {
+			promotion {
+				... on HappyHourPromotion {
+					...HappyHour
+				}
+			}
+		}
+	}
+}

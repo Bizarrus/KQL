@@ -1,0 +1,15 @@
+query GetProfilePictureUrls($userId: ID!) {
+	user {
+		user(id: $userId) {
+			id
+			profilePicture {
+				urlLargeSquare
+				urlVeryLarge
+				exists
+			}
+			profilePictureOverlayUrls {
+				...ProfilePictureOverlays
+			}
+		}
+	}
+}

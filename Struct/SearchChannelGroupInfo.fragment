@@ -1,0 +1,5 @@
+fragment SearchChannelGroupInfo on ChannelGroupInfo {
+	...ChannelGroupInfo
+	categoryNames
+	searchKeywords
+}

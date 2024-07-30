@@ -1,0 +1,5 @@
+query GetUnusedSkuId($skuIds: [String!]!, $receipt: String!) {
+	payment {
+		unusedSkuIdIos(skuIds: $skuIds, receipt: $receipt)
+	}
+}

@@ -1,0 +1,7 @@
+query AllSmileyIds($limit: Int) {
+	smileybox {
+		smileyList(type: AllUsable, limit: $limit) {
+			id
+		}
+	}
+}

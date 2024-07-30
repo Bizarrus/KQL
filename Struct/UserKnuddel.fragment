@@ -1,0 +1,4 @@
+fragment UserKnuddel on User {
+	id
+	knuddelAmount
+}

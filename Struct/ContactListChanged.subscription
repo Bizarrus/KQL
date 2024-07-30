@@ -1,0 +1,18 @@
+subscription ContactListChanged(
+	$filter: ContactListFilter!
+	$pixelDensity: Float!
+) {
+	contactListEvent(filter: $filter) {
+		... on ContactAddedEvent {
+			user {
+				...ContactsUser
+			}
+		}
+		... on ContactRemovedEvent {
+			user {
+				id
+				isOnWatchlist
+			}
+		}
+	}
+}

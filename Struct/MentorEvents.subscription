@@ -1,0 +1,26 @@
+subscription MentorEvents {
+	mentorEvent {
+		... on PotentialMenteeAddedEvent {
+			...PotentialMenteeAddedEvent
+		}
+		... on PotentialMenteeRemovedEvent {
+			user {
+				id
+				menteeStatus
+			}
+		}
+		... on MentorAchievedEvent {
+			mentee {
+				id
+				menteeStatus
+				interest
+				latestClient
+			}
+		}
+		... on MentorStatusChanged {
+			newStatus {
+				...MentorStatus
+			}
+		}
+	}
+}

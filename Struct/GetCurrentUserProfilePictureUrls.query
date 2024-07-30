@@ -1,0 +1,12 @@
+query GetCurrentUserProfilePictureUrls {
+	user {
+		currentUser {
+			id
+			profilePicture {
+				urlLargeSquare
+				urlVeryLarge
+				exists
+			}
+		}
+	}
+}

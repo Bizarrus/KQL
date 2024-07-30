@@ -1,0 +1,7 @@
+query ConversationWithParticipants($ids: [ID!]!) {
+	messenger {
+		conversationWithParticipants(otherParticipantIds: $ids) {
+			id
+		}
+	}
+}

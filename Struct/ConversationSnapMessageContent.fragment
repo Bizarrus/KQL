@@ -1,0 +1,10 @@
+fragment ConversationSnapMessageContent on ConversationSnapMessageContent {
+	snap {
+		url
+		photoId
+		duration
+		decryptionKey
+	}
+	imageAccepted
+	sensitiveContentClassification
+}

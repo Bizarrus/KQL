@@ -1,0 +1,4 @@
+fragment UserWithOnline on User {
+	id
+	isOnline
+}

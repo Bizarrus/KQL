@@ -1,0 +1,12 @@
+mutation CancelFriendRequest($userId: ID!) {
+	contacts {
+		cancelFriendRequest(userId: $userId) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

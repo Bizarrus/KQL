@@ -1,0 +1,8 @@
+subscription IsIgnoringChanged {
+	isIgnoringChanged {
+		id
+		isIgnoring
+		canReceiveMessages
+		canReceivePhotoComments
+	}
+}

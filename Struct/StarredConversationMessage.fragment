@@ -1,0 +1,11 @@
+fragment StarredConversationMessage on StarredConversationMessage {
+	conversation {
+		id
+		otherParticipants {
+			...StarredMessagesUser
+		}
+	}
+	message {
+		...StarredMessagesConversationMessage
+	}
+}

@@ -1,0 +1,15 @@
+fragment SearchChannelGroup on ChannelGroup {
+	id
+	name
+	info {
+		...SearchChannelGroupInfo
+	}
+	channels {
+		id
+		name
+		onlineUserCount
+	}
+	previewMembers {
+		...ChannelPreviewMembers
+	}
+}

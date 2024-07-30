@@ -1,0 +1,7 @@
+subscription MultipleUserOnlineUpdated($ids: [ID!]!) {
+	multipleUserChanged(config: { userIds: $ids, fields: [isOnline] }) {
+		...UserWithOnline
+		latestOnlineChannelName
+		lastOnlineTime
+	}
+}

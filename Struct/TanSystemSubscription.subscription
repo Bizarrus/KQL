@@ -1,0 +1,5 @@
+subscription TanSystemSubscription {
+	tanStatusChanged {
+		...TanSystemStatus
+	}
+}

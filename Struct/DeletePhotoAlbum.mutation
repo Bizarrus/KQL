@@ -1,0 +1,12 @@
+mutation DeletePhotoAlbum($albumId: ID!) {
+	user {
+		deleteAlbum(albumId: $albumId) {
+			... on DeleteAlbumSuccess {
+				albumId
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

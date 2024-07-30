@@ -1,0 +1,12 @@
+query ConversationStarterSuggestions($conversationId: ID!) {
+	messenger {
+		conversationStarterSuggestions(conversationId: $conversationId) {
+			... on ConversationStarterSuggestionText {
+				...ConversationStarterSuggestionText
+			}
+			... on ConversationStarterSuggestionSmiley {
+				...ConversationStarterSuggestionSmiley
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+mutation NotifyProfileVisited($userId: ID!) {
+	user {
+		notifyProfileVisited(userId: $userId)
+	}
+}

@@ -1,0 +1,12 @@
+mutation UpdateNsfwSearchEntriesVisible($visible: Boolean!) {
+	user {
+		updateNsfwSearchEntriesVisible(nsfwSearchEntriesVisible: $visible) {
+			... on Success {
+				unused
+			}
+			... on InternalError {
+				unused
+			}
+		}
+	}
+}

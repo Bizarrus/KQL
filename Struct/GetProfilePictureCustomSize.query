@@ -1,0 +1,20 @@
+query GetProfilePictureCustomSize(
+	$userId: ID!
+	$pixelDensity: Float!
+	$size: Int!
+) {
+	user {
+		user(id: $userId) {
+			id
+			profilePicture {
+				urlCustomSizeSquare(
+					pixelDensity: $pixelDensity
+					size: $size
+				)
+			}
+			profilePictureOverlayUrls {
+				...ProfilePictureOverlays
+			}
+		}
+	}
+}

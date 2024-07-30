@@ -1,0 +1,13 @@
+subscription happyMomentEvents {
+	happyMomentEvent {
+		... on LongConversationOccurred {
+			...LongConversationOccurred
+		}
+		... on DailyLoginUsed {
+			...DailyLoginUsed
+		}
+		... on FriendRequestAccepted {
+			...FriendRequestAccepted
+		}
+	}
+}

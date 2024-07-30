@@ -1,0 +1,14 @@
+fragment ChannelAd on ChannelAd {
+	adCampaignId
+	channelGroup {
+		id
+		name
+		info {
+			...ChannelGroupInfo
+		}
+		channels {
+			id
+			onlineUserCount
+		}
+	}
+}

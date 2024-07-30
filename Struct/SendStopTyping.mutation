@@ -1,0 +1,7 @@
+mutation SendStopTyping($id: ID!) {
+	messenger {
+		notifyStopTyping(conversationId: $id) {
+			error
+		}
+	}
+}
