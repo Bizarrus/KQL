@@ -5,6 +5,7 @@ import FS from 'fs';
 class Scheme {
 	constructor() {
 		this.cache = {
+			enums: 			{},
 			fragments: 		{},
 			querys:			{},
 			mutations:		{},
@@ -24,6 +25,7 @@ class Scheme {
 		
 		FS.readdirSync('./Scheme/').map(file => {
 			[
+				'enum',
 				'fragment',
 				'query',
 				'mutation',
@@ -42,56 +44,12 @@ class Scheme {
 		console.info('[Scheme] Loaded ' + count + ' Scheme-Files.');
 	}
 	
-	getFragment(name) {
-		if(typeof(this.cache.fragments[name]) == 'undefined') {
-			throw Error('[Scheme] Cant find fragment "' + name + '".');
+	get(type, name, fragments) {
+		if(typeof(this.cache[type + 's'][name]) === 'undefined') {
+			throw Error('[Scheme] Cant find ' + type + ' "' + name + '".');
 		}
 		
-		return this.cache.fragments[name];
-	}
-	
-	getQuery(name, fragments) {
-		if(typeof(this.cache.querys[name]) == 'undefined') {
-			throw Error('[Scheme] Cant find query "' + name + '".');
-		}
-		
-		let content = this.cache.querys[name];
-		
-		if(typeof(fragments) !== 'undefined') {
-			content += '\n';
-			
-			fragments.map(fragment => {
-				content += '\n' + this.getFragment(fragment);
-			});
-		}
-		
-		return content;
-	}
-	
-	getMutation(name, fragments) {
-		if(typeof(this.cache.mutations[name]) == 'undefined') {
-			throw Error('[Scheme] Cant find mutation "' + name + '".');
-		}
-		
-		let content = this.cache.mutations[name];
-		
-		if(typeof(fragments) !== 'undefined') {
-			content += '\n';
-			
-			fragments.map(fragment => {
-				content += '\n' + this.getFragment(fragment);
-			});
-		}
-		
-		return content;
-	}
-	
-	getSubscription(name, fragments) {
-		if(typeof(this.cache.subscriptions[name]) == 'undefined') {
-			throw Error('[Scheme] Cant find subscription "' + name + '".');
-		}
-		
-		let content = this.cache.subscriptions[name];
+		let content = this.cache[type + 's'][name];
 		
 		if(typeof(fragments) !== 'undefined' && fragments !== null) {
 			content += '\n';
@@ -102,6 +60,26 @@ class Scheme {
 		}
 		
 		return content;
+	}
+	
+	getEnum(name) {
+		return this.get('enum', name);
+	}
+	
+	getFragment(name) {
+		return this.get('fragment', name);
+	}
+	
+	getQuery(name, fragments) {
+		return this.get('query', name, fragments);
+	}
+	
+	getMutation(name, fragments) {
+		return this.get('mutation', name, fragments);
+	}
+	
+	getSubscription(name, fragments) {
+		return this.get('subscription', name, fragments);
 	}
 }
 

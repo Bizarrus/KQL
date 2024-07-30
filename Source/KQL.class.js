@@ -8,13 +8,14 @@ export default class KQL {
 	constructor() {
 		this._graph_url	= 'https://api-de.knuddels.de/api-gateway/graphql';
 		this._session	= null;
-		this._socket	= new WebSocket('wss://api-de.knuddels.de/api-gateway/subscriptions');
+		this._socket	= new WebSocket('wss://api-de.knuddels.de/api-gateway/subscriptions', {
+			headers: {
+				'origin':		'https://app.knuddels.de',
+				'user-agent':	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0'
+			}
+		});
 		this._id		= 1;
-		
-		/*
-			Origin: https://app.knuddels.de
-			User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0
-		*/
+		this._events	= {};
 		
 		this._socket.on('error', console.error);
 		this._socket.on('open', () => {
@@ -129,22 +130,27 @@ export default class KQL {
 					});
 				break;
 				case 'error':
-					console.error('ERROR', JSON.stringify(packet.payload.errors));
+					console.error('ERROR', JSON.stringify(packet.payload.errors, 0, 1));
 				break;
 			}
 		});
 	}
 	
 	subscribe(name, fragments, variables) {
-		this.send({
-			id: 		this._id++,
-			type:		'start',
-			payload:	{
-				variable:		(typeof(variables) === 'undefined' ? {} : variables),
-				extensions:		{},
-				operationName:	name,
-				query:			Scheme.getSubscription(name, fragments)
-			}
+		return new Promise(async (success, error) => {
+			let callback 			= this._id++;
+			this._events[callback]	= success;
+			
+			this.send({
+				id: 		'' + callback,
+				type:		'start',
+				payload:	{
+					variable:		(typeof(variables) === 'undefined' ? {} : variables),
+					extensions:		{},
+					operationName:	name,
+					query:			Scheme.getSubscription(name, fragments)
+				}
+			});
 		});
 	}
 	
@@ -200,7 +206,7 @@ export default class KQL {
 					deviceIdentifiers:	this.getDeviceHash()
 				}
 			});
-					
+			
 			/* Connect with WebSocket */
 			this.send({
 				type: 		'connection_init',
@@ -246,8 +252,11 @@ export default class KQL {
 		});
 	}
 	
-	getSmileys() {
+	getSmileys() {		
 		return new Promise(async (success, error) => {
+			let callback			= this.createID();
+			this._events[callback]	= success;
+			
 			const reqsponse = await new GraphQLClient(this._graph_url, {
 				headers: {
 					authorization: 'Bearer ' + this._session,
@@ -258,7 +267,7 @@ export default class KQL {
 					channelName:	'',
 					eventKey:		'__fetchEventRequest',
 					eventValue:		JSON.stringify({
-						id:		0.1234, // Unique per Request
+						id:		callback,
 						key:	'search',
 						data:	{
 							query:		'demo',
@@ -270,6 +279,10 @@ export default class KQL {
 			
 			console.log('SMILEYS', reqsponse);
 		});
+	}
+	
+	createID() {
+		return '0.' + (process.hrtime()[0] * 1000000000 + process.hrtime()[1]);
 	}
 	
 	send(packet) {
@@ -284,5 +297,6 @@ export default class KQL {
 		})));
 		
 		this._socket.send(JSON.stringify(packet));
+		console.error(this.createID());
 	}
 }
