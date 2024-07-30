@@ -1,0 +1,10 @@
+enum MessengerConversationState {
+
+	ALL,
+
+	ARCHIVED,
+
+	NOT_ARCHIVED,
+
+	UNREAD
+}

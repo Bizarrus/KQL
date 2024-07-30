@@ -1,0 +1,14 @@
+enum SoundEvent {
+
+	NewMessageReceived,
+
+	FriendRequestAccepted,
+
+	EngagementSystemApp,
+
+	VipApp,
+
+	Global,
+
+	LoyaltyApp
+}

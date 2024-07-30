@@ -1,0 +1,10 @@
+enum DisconnectReason {
+
+	UNKNOWN,
+
+	# The user has been locked by an administrative action. Many chat features are not available until the user is unlocked.
+	USER_LOCKED,
+
+	# The user has requested the deletion of his account.
+	USER_DELETION
+}

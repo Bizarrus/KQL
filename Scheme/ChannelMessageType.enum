@@ -1,0 +1,8 @@
+enum ChannelMessageType {
+
+	PUBLIC,
+
+	ACTION,
+
+	SYSTEM
+}

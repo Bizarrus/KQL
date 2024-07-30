@@ -1,0 +1,14 @@
+enum CantCommentReason {
+
+	UNKNOWN,
+
+	SPAM,
+
+	TEXT_FILTER,
+
+	IGNORED,
+
+	COMMENTS_DISABLED,
+
+	COMMENTS_ONLY_FOR_FAMILY
+}

@@ -1,0 +1,8 @@
+enum MenteeStatus {
+
+	None,
+
+	PotentialMentee,
+
+	Mentee
+}

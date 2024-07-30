@@ -1,0 +1,16 @@
+enum RegistrationInterest {
+
+	Friends,
+
+	Chat,
+
+	Flirt,
+
+	Games,
+
+	Adventure,
+
+	Themetalk,
+
+	LocalChannels
+}

@@ -1,0 +1,6 @@
+enum PaymentSubscriptionPeriodUnit {
+
+	Monthly,
+
+	Weekly
+}

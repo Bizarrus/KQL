@@ -1,0 +1,8 @@
+enum WebPaymentResponseError {
+
+	Internal,
+
+	UserNotInChannel,
+
+	U18AmountRestriction
+}

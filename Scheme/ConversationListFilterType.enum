@@ -1,0 +1,6 @@
+enum ConversationListFilterType {
+
+	ALL_MESSAGES,
+
+	UNREAD_MESSAGES
+}

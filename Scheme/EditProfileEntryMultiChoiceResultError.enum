@@ -1,0 +1,6 @@
+enum EditProfileEntryMultiChoiceResultError {
+
+	INTERNAL,
+
+	INVALID_VALUE
+}

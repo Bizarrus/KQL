@@ -7,6 +7,22 @@ export default class KQL {
 	constructor() {
 		this._graph_url	= 'https://api-de.knuddels.de/api-gateway/graphql';
 		this._session	= null;
+		
+			// @ToDo Create WebSocket
+		/*
+			wss://api-de.knuddels.de/api-gateway/subscriptions
+			
+			Origin: https://app.knuddels.de
+			User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0
+		*/
+		
+		/**
+			{"type":"connection_init","payload":{"authToken":"<session>"}}
+				
+			{"type":"connection_ack"}
+			
+			{"type":"ka"}
+		*/
 	}
 	
 	call() {

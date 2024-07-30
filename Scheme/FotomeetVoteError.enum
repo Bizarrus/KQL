@@ -1,0 +1,11 @@
+enum FotomeetVoteError {
+
+	# ERROR
+	USER_NOT_FOUND,
+
+	# # trying to change vote for someone that is not the previously voted user? maybe don't need this and only use next error
+	CANNOT_CHANGE_VOTE,
+
+	# # e.g. somehow trying to query a user that is not in his/her pool?
+	CANNOT_VOTE_FOR_THIS_USER
+}

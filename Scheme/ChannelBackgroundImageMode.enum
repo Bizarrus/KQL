@@ -1,0 +1,8 @@
+enum ChannelBackgroundImageMode {
+
+	COVER,
+
+	TILED,
+
+	CENTERED
+}

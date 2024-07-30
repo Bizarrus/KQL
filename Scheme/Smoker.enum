@@ -1,0 +1,10 @@
+enum Smoker {
+
+	YES,
+
+	NO,
+
+	QUIT,
+
+	OCCASIONAL
+}

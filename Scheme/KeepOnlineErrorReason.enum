@@ -1,0 +1,7 @@
+enum KeepOnlineErrorReason {
+
+	# The session of this client is invalid. The client needs to call `refreshSession` again.
+	SessionInvalid,
+
+	InternalError
+}

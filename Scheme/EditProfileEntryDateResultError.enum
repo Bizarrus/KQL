@@ -1,0 +1,6 @@
+enum EditProfileEntryDateResultError {
+
+	INTERNAL,
+
+	INVALID_FIELD
+}

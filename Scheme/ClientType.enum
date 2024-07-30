@@ -1,0 +1,8 @@
+enum ClientType {
+
+	Unknown,
+
+	K3GraphQl,
+
+	StAppGraphQl
+}

@@ -1,0 +1,8 @@
+enum InitialJoinBehavior {
+
+	ENABLED,
+
+	DISABLED_UNTIL_JOIN,
+
+	DISABLED
+}

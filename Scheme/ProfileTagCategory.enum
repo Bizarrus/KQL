@@ -1,0 +1,8 @@
+enum ProfileTagCategory {
+
+	RelationshipStatus,
+
+	CommunityStatus,
+
+	SexualOrientation
+}

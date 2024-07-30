@@ -1,0 +1,11 @@
+enum ClientState {
+
+	# The client is currently in foreground.
+	Active,
+
+	# The client is currently in foreground and idle.
+	Inactive,
+
+	# The client is currently in the background.
+	Background
+}

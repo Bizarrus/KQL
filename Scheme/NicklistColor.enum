@@ -1,0 +1,12 @@
+enum NicklistColor {
+
+	Gold,
+
+	Red,
+
+	Green,
+
+	Blue,
+
+	Default
+}

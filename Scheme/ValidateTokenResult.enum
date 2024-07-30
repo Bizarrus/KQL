@@ -1,0 +1,14 @@
+enum ValidateTokenResult {
+
+	# Token is valid.
+	VALID,
+
+	# Token has expired.
+	EXPIRED,
+
+	# The request was invalid.
+	INVALID_REQUEST,
+
+	# An unknown internal error occurred.
+	INTERNAL_ERROR
+}

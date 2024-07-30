@@ -1,0 +1,8 @@
+enum AnalyticsEvent {
+
+	# The app went to the background
+	APP_IN_BACKGROUND,
+
+	# The app went to the foreground
+	APP_IN_FOREGROUND
+}

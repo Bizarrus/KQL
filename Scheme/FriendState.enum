@@ -1,0 +1,14 @@
+enum FriendState {
+
+	# No Friends
+	NONE,
+
+	# Sent FriendRequest to the target user.
+	REQUEST_INITIATED,
+
+	# Got FriendRequest from the target user..
+	REQUEST_RECEIVED,
+
+	# Friends.
+	FRIENDS
+}

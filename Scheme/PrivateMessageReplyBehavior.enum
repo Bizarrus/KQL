@@ -1,0 +1,6 @@
+enum PrivateMessageReplyBehavior {
+
+	MESSENGER,
+
+	SLASH_COMMAND
+}

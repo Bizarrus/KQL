@@ -1,0 +1,4 @@
+enum MessengerModifyConversationResponseError {
+
+	INVALID_CONVERSATION
+}

@@ -1,0 +1,12 @@
+enum ContactListType {
+
+	Friends,
+
+	Watchlist,
+
+	Fotomeet,
+
+	Mentee,
+
+	Latest
+}

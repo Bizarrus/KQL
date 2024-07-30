@@ -1,0 +1,16 @@
+enum SexualOrientation {
+
+	UNKNOWN,
+
+	HETEROSEXUAL,
+
+	HOMOSEXUAL,
+
+	BI,
+
+	UNDECIDED,
+
+	TRANSGENDER,
+
+	OTHER
+}

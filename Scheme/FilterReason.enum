@@ -1,0 +1,12 @@
+enum FilterReason {
+
+	OTHER,
+
+	NO_PROFILE_PICTURE,
+
+	WRONG_AGE,
+
+	WRONG_GENDER,
+
+	NO_VERIFICATION
+}

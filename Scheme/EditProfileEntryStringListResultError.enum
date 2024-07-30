@@ -1,0 +1,6 @@
+enum EditProfileEntryStringListResultError {
+
+	INTERNAL,
+
+	INVALID_FIELD
+}

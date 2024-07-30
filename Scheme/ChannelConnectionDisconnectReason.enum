@@ -1,0 +1,12 @@
+enum ChannelConnectionDisconnectReason {
+
+	# A not specifically handled reason for the disconnect. The client may assume that this kind of disconnect is not
+intended by the user.
+	INTERNAL,
+
+	# The user closed the channel connection on his own volition.
+	USER_LEAVE,
+
+	# Another session has connected to the channel.
+	OTHER_SESSION_CONNECTED
+}

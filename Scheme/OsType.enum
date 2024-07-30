@@ -1,0 +1,14 @@
+enum OsType {
+
+	Unknown,
+
+	Windows,
+
+	MacOs,
+
+	Linux,
+
+	Android,
+
+	Ios
+}

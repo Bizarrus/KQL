@@ -1,0 +1,8 @@
+enum Country {
+
+	GERMANY,
+
+	AUSTRIA,
+
+	SWITZERLAND
+}

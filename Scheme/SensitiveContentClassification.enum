@@ -1,0 +1,12 @@
+enum SensitiveContentClassification {
+
+	none,
+
+	adult,
+
+	medical,
+
+	violence,
+
+	racy
+}

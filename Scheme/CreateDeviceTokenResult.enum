@@ -1,0 +1,16 @@
+enum CreateDeviceTokenResult {
+
+	# The request was successful.
+	SUCCESS,
+
+	# The user associated with the submitted credentials does not exist.
+	UNKNOWN_USER,
+
+	# The submitted credentials do not validate.
+	INVALID_CREDENTIALS,
+
+	# An unknown internal error occurred. (e.g. downstream service are not available)
+	INTERNAL_ERROR,
+
+	NICK_SWITCH_IN_PROGRESS
+}

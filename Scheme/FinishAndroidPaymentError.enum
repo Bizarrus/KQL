@@ -1,0 +1,8 @@
+enum FinishAndroidPaymentError {
+
+	Internal,
+
+	UserNotInChannel,
+
+	U18AmountRestriction
+}

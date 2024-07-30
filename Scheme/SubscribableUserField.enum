@@ -1,0 +1,23 @@
+enum SubscribableUserField {
+
+	isOnline,
+
+	# [DEPRECATED] 
+	Channel,
+
+	CurrentOnlineChannelName,
+
+	KnuddelAmount,
+
+	FriendState,
+
+	Email,
+
+	VerifiedPhoneNumber,
+
+	EvergreenData,
+
+	ProfilePicture,
+
+	ProfilePictureOverlays
+}

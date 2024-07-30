@@ -1,0 +1,22 @@
+enum ChannelListCategory {
+
+	GAMES,
+
+	FLIRT,
+
+	LOCAL,
+
+	USER_CHANNEL,
+
+	ABOVE_20,
+
+	THEME_TALK,
+
+	MUSIC,
+
+	SPORTS,
+
+	EROTIC,
+
+	MISC
+}

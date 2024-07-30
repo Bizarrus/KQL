@@ -1,0 +1,5 @@
+enum LeaveChannelMutationResponseError {
+
+	# An unknown internal error occurred. (e.g. downstream service are not available)
+	INTERNAL_ERROR
+}

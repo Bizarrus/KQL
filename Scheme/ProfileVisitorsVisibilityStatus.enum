@@ -1,0 +1,9 @@
+enum ProfileVisitorsVisibilityStatus {
+
+	VISIBLE,
+
+	NOT_VISIBLE,
+
+	# The user has manually disabled the feature
+	DISABLED
+}

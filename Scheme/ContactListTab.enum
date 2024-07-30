@@ -1,0 +1,12 @@
+enum ContactListTab {
+
+	FRIENDS,
+
+	WATCHLIST,
+
+	FOTOMEET,
+
+	MENTEE,
+
+	LATEST
+}

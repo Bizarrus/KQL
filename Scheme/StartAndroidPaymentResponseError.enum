@@ -1,0 +1,8 @@
+enum StartAndroidPaymentResponseError {
+
+	Internal,
+
+	UserNotInChannel,
+
+	U18AmountRestriction
+}

@@ -1,0 +1,8 @@
+enum SendMessageMutationError {
+
+	# An unknown internal error occurred. (e.g. downstream service are not available)
+	INTERNAL_ERROR,
+
+	# The channel to which the message should be send was not found
+	CHANNEL_NOT_FOUND
+}

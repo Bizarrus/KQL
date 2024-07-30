@@ -1,0 +1,12 @@
+enum Gender {
+
+	UNKNOWN,
+
+	MALE,
+
+	FEMALE,
+
+	NONBINARY_HE,
+
+	NONBINARY_SHE
+}

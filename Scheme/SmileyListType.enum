@@ -1,0 +1,6 @@
+enum SmileyListType {
+
+	RecentlyUsed,
+
+	AllUsable
+}

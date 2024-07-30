@@ -1,0 +1,10 @@
+enum PrivacyType {
+
+	Public,
+
+	FriendsOnly,
+
+	BestFriendsOnly,
+
+	Hidden
+}

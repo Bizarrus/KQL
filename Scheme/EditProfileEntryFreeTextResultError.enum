@@ -1,0 +1,8 @@
+enum EditProfileEntryFreeTextResultError {
+
+	INTERNAL,
+
+	INVALID_FIELD,
+
+	INVALID_VALUE
+}

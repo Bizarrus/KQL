@@ -1,0 +1,13 @@
+enum IgnoreState {
+
+	NONE,
+
+	# Temporarily block private messages from the target user.
+	PRIVATE_IGNORE,
+
+	# Temporarily block private and public messages from the target user.
+	IGNORE,
+
+	# Permanently block private and public messages from the target user.
+	BLOCK
+}

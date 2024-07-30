@@ -1,0 +1,10 @@
+enum AuthenticityClassification {
+
+	NO_DATA,
+
+	UNKNOWN,
+
+	TRUSTED,
+
+	VERY_TRUSTED
+}

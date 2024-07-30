@@ -1,0 +1,8 @@
+enum ComplaintItemType {
+
+	User,
+
+	Photo,
+
+	Fotomeet
+}

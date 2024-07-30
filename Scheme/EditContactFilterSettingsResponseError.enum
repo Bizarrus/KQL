@@ -1,0 +1,9 @@
+enum EditContactFilterSettingsResponseError {
+
+	INTERNAL,
+
+	# The request failed validation. At the time of writing, there are no inputs that permit invalid data entry
+by the user, therefore we can simplify our error handling to a single bug-indicating bad request error instead
+of a more complex validation error system.
+	BAD_REQUEST
+}

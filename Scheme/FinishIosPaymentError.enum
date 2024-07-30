@@ -1,0 +1,8 @@
+enum FinishIosPaymentError {
+
+	Internal,
+
+	UserNotInChannel,
+
+	U18AmountRestriction
+}

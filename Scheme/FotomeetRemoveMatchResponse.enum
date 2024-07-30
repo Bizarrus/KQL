@@ -1,0 +1,6 @@
+enum FotomeetRemoveMatchResponse {
+
+	SUCCESS,
+
+	ERROR
+}

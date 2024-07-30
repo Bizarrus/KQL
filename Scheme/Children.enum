@@ -1,0 +1,28 @@
+enum Children {
+
+	NO_THANKS,
+
+	MAYBE_LATER,
+
+	EXISTING,
+
+	ONE,
+
+	TWO,
+
+	THREE,
+
+	A_LOT,
+
+	EXTENDED_FAMILY,
+
+	PATCHWORK_FAMILY,
+
+	BY_ALL_MEANS,
+
+	IN_PROGRESS,
+
+	PLANNED,
+
+	ZERO
+}

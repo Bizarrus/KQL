@@ -1,0 +1,10 @@
+enum ComplaintReasonContext {
+
+	Profile,
+
+	ProfileWithAlbum,
+
+	AlbumPhoto,
+
+	Fotomeet
+}

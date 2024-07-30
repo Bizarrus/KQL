@@ -1,0 +1,13 @@
+enum ClientPlatform {
+
+	Unknown,
+
+	# Clients running on regular web platform (i.e. browser).
+	Web,
+
+	# Native clients (e.g. mobile apps or native desktop app).
+	Native,
+
+	# Clients embedded in other applications (e.g. messenger in legacy app).
+	Embedded
+}

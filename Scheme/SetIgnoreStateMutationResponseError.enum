@@ -1,0 +1,7 @@
+enum SetIgnoreStateMutationResponseError {
+
+	INTERNAL,
+
+	# The user can't be ignored at the moment.
+	NOT_IGNORABLE
+}

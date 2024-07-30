@@ -1,0 +1,6 @@
+enum MessengerNestedMessageType {
+
+	QUOTE,
+
+	FORWARD
+}

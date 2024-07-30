@@ -1,0 +1,8 @@
+enum FotomeetVotingUnavailableReason {
+
+	LIMIT_REACHED,
+
+	NO_MATCHES,
+
+	NO_PHOTO
+}

@@ -1,0 +1,8 @@
+enum MessengerConversationVisibility {
+
+	VISIBLE,
+
+	ARCHIVED,
+
+	DELETED
+}
