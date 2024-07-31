@@ -5,12 +5,14 @@ import GraphQL from './GraphQL.class.js';
 import Auth from './Auth.class.js';
 import Event from './Event.class.js';
 import Client from './Client.class.js';
+import Channels from './Channels.class.js';
 
 export default class KQL {
 	constructor() {
 		this.Auth			= Auth;
 		this.Event			= Event;
 		this.Client			= Client;
+		this.Channels		= Channels;
 		
 		this.getCurrentServerTime().then((time) => {
 			this._server_time	= time;
