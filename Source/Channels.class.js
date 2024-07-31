@@ -7,7 +7,7 @@ import Channel from './Channel.class.js';
 
 class Channels {
 	constructor() {
-	
+		this._channels = {};
 	}
 	
 	getChannels() {
@@ -29,11 +29,37 @@ class Channels {
 				
 				response.channel.categories.forEach((category) => {
 					category.channelGroups.forEach((channel) => {
-						channels.push(new Channel(channel));
+						channel.id							= channel.id + ':1';
+						let instance						= new Channel(channel);
+						this._channels[instance.getID()]	= instance;
+						channels.push(instance);
 					});
 				});
 				
 				success(channels);				
+			});
+		});
+	}
+	
+	getChannel(id, channel) {
+		return new Promise(async (success, error) => {
+			GraphQL.callAuth(Scheme.getQuery('GetChannel', [
+				'ActiveChannel',
+				'ChannelUser',
+				'Color'
+			]), {
+				channelId: 		id + ':' + channel
+			}).then((response) => {
+				let instance	= null;
+				let channel		= response.channel.channel;
+				
+				if(typeof(this._channels[channel.id]) !== 'undefined') {
+					instance = this._channels[channel.id];
+				} else {
+					instance = new Channel(channel);
+				}
+				
+				success(instance);				
 			});
 		});
 	}

@@ -38,7 +38,7 @@ class Device {
 	}
 	
 	getPixelDensity() {
-		return 1;
+		return parseFloat(2.0);
 	}
 }
 

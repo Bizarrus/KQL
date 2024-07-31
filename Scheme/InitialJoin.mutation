@@ -1,4 +1,4 @@
-mutation InitialJoin($force: Boolean, $pixelDensity: Float!) {
+mutation InitialJoin($force: Boolean) {
 	channel {
 		initialJoin(force: $force) {
 			channels {

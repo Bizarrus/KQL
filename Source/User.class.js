@@ -64,7 +64,7 @@ export default class User {
 			]), {
 				limit: limit
 			}).then((response) => {
-				success(response.smileybox.smileyList);				
+				success(response.smileybox.smileyList);
 			});			
 		});
 	}

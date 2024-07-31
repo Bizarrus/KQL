@@ -22,7 +22,8 @@ class GraphQL {
 	
 	callAuth(scheme, variables) {
 		return new Promise(async (success, error) => {
-			const response = await new GraphQLClient(this._graph_url, {
+			let response = await new GraphQLClient(this._graph_url, {
+				//errorPolicy: 'all',
 				headers: {
 					authorization: 'Bearer ' + this._graph_token,
 					'user-agent':	Device.getUserAgent()

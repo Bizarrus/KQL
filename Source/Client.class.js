@@ -62,14 +62,10 @@ class Client {
 			GraphQL.callAuth(Scheme.getMutation('InitialJoin', [
 				'ActiveChannel',
 				'ChannelUser',
-				'ProfilePictureOverlays',
 				'Color',
-				'ChannelMessage',
-				'ChannelMsgUser',
 				'ChannelJoinError'
 			]), {
-				force:			false,
-				pixelDensity:	Device.getPixelDensity()
+				force:			false
 			}).then((response) => {
 				success();
 			});

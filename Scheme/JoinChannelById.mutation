@@ -1,7 +1,6 @@
 mutation JoinChannelById(
 	$channelId: ID!
 	$password: String
-	$pixelDensity: Float!
 	$confirmed: Boolean
 	$mayJoinSubChannelIfFull: Boolean
 ) {
