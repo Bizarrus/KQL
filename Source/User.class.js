@@ -49,7 +49,15 @@ export default class User {
 		return this._minutes;
 	}
 	
-	getSmileys(limit) {
+	getSmileysIDs() {
+		return new Promise(async (success, error) => {
+			GraphQL.callAuth(Scheme.getQuery('AllSmileyIds')).then((response) => {
+				success(response.smileybox.smileyList);
+			});			
+		});
+	}
+	
+	getRecentSmileys(limit) {
 		return new Promise(async (success, error) => {
 			GraphQL.callAuth(Scheme.getQuery('RecentSmileys', [
 				'Smiley'
