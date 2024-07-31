@@ -5,6 +5,7 @@ import Scheme from './Scheme.class.js';
 import Client from './Client.class.js';
 import Device from './Device.class.js';
 import Event from './Event.class.js';
+import User from './User.class.js';
 
 class Auth {
 	constructor() {
@@ -38,7 +39,7 @@ class Auth {
 						
 						Client.initialJoin().then(() => {
 							this.getCurrentNick().then((user) => {
-								success(user);						
+								success(new User(user));						
 							});
 						});
 					});
